@@ -2,25 +2,425 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #000000;
+}
+
+@theme {
+  --color-brand-orange: #f36801;
+  --color-brand-lime: #acc300;
+  --color-brand-black: #000000;
+  --color-brand-white: #ffffff;
+  --color-brand-dark: #0f0f10;
+  --color-brand-gray: #1f1f22;
+  --font-heading: var(--font-teachers), "Teachers", sans-serif;
+  --font-body: var(--font-teachers), "Teachers", sans-serif;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-teachers), "Teachers", sans-serif;
+}
+
+
+/* ========================================
+   TYPOGRAPHY SYSTEM
+   ======================================== */
+
+/* Hero headings: 64–88px, bold */
+.text-hero {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: clamp(3.5rem, 6vw, 5.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+/* Section headings: 40–56px */
+.text-section {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(2.25rem, 4vw, 3.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+}
+
+/* Sub-section heading */
+.text-subsection {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+/* Body text: 18–20px with generous line height */
+.text-body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: clamp(1rem, 1.2vw, 1.25rem);
+  line-height: 1.75;
+}
+
+/* Small labels: uppercase with increased letter spacing */
+.text-label {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* Large label */
+.text-label-lg {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ========================================
+   SCROLL-DRIVEN ANIMATION SYSTEM
+   ======================================== */
+
+/* --- Base states (pre-animation) --- */
+.anim-hidden {
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+/* --- Fade Up --- */
+.anim-fade-up {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+.anim-fade-up.anim-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Fade Down --- */
+.anim-fade-down {
+  opacity: 0;
+  transform: translateY(-50px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+.anim-fade-down.anim-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Fade Left (slides from left) --- */
+.anim-fade-left {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+.anim-fade-left.anim-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* --- Fade Right (slides from right) --- */
+.anim-fade-right {
+  opacity: 0;
+  transform: translateX(60px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+.anim-fade-right.anim-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* --- Scale Up (zoom in from small) --- */
+.anim-scale-up {
+  opacity: 0;
+  transform: scale(0.85);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+.anim-scale-up.anim-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* --- Pop In (bounce scale) --- */
+.anim-pop-in {
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+              transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  will-change: transform, opacity;
+}
+.anim-pop-in.anim-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* --- Split Reveal (curtain open from center) --- */
+.anim-split-reveal {
+  clip-path: inset(0 50% 0 50%);
+  transition: clip-path 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: clip-path;
+}
+.anim-split-reveal.anim-visible {
+  clip-path: inset(0 0 0 0);
+}
+
+/* --- Width Grow (for accent bars) --- */
+.anim-width-grow {
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+.anim-width-grow.anim-visible {
+  transform: scaleX(1);
+}
+
+/* --- Slide Up with Bounce (for overlay cards) --- */
+.anim-slide-up-bounce {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
+              transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+  will-change: transform, opacity;
+}
+.anim-slide-up-bounce.anim-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Rotate In (slight rotation + fade) --- */
+.anim-rotate-in {
+  opacity: 0;
+  transform: translateY(20px) rotate(3deg);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+.anim-rotate-in.anim-visible {
+  opacity: 1;
+  transform: translateY(0) rotate(0deg);
+}
+
+/* ========================================
+   STAGGER DELAY UTILITIES
+   ======================================== */
+.anim-delay-100 { transition-delay: 100ms; }
+.anim-delay-200 { transition-delay: 200ms; }
+.anim-delay-300 { transition-delay: 300ms; }
+.anim-delay-400 { transition-delay: 400ms; }
+.anim-delay-500 { transition-delay: 500ms; }
+.anim-delay-600 { transition-delay: 600ms; }
+.anim-delay-700 { transition-delay: 700ms; }
+.anim-delay-800 { transition-delay: 800ms; }
+.anim-delay-900 { transition-delay: 900ms; }
+.anim-delay-1000 { transition-delay: 1000ms; }
+
+/* ========================================
+   KEYFRAME ANIMATIONS
+   ======================================== */
+
+/* Ken Burns — slow zoom for images */
+@keyframes kenBurns {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.08); }
+}
+.anim-ken-burns {
+  animation: kenBurns 12s ease-in-out infinite alternate;
+}
+
+/* Pulse Glow — for gradient borders */
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.7; }
+}
+.anim-pulse-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+/* Gentle Float — for decorative elements */
+@keyframes gentleFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  33% { transform: translateY(-15px) rotate(1deg); }
+  66% { transform: translateY(8px) rotate(-0.5deg); }
+}
+.anim-float {
+  animation: gentleFloat 8s ease-in-out infinite;
+}
+
+.anim-float-delayed {
+  animation: gentleFloat 10s ease-in-out 2s infinite;
+}
+
+/* Shimmer — for accent elements */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* ========================================
+   INFINITE CAROUSEL
+   ======================================== */
+@keyframes infiniteScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.carousel-track {
+  display: flex;
+  width: max-content;
+  animation: infiniteScroll 30s linear infinite;
+}
+
+.carousel-track:hover {
+  animation-play-state: paused;
+}
+
+/* ========================================
+   ACCORDION
+   ======================================== */
+.accordion-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.accordion-content.open {
+  grid-template-rows: 1fr;
+}
+
+.accordion-inner {
+  overflow: hidden;
+}
+
+/* ========================================
+   NAVBAR TRANSPARENCY TRANSITION
+   ======================================== */
+.navbar-transparent {
+  background: transparent;
+  border-color: transparent;
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar-solid {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  border-color: rgba(228, 228, 231, 0.6);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* ========================================
+   3D TILT CONTAINER
+   ======================================== */
+.tilt-container {
+  transition: transform 0.15s ease-out;
+  transform-style: preserve-3d;
+}
+
+/* ========================================
+   IMAGE ZOOM CONTAINER
+   ======================================== */
+.zoom-image-container {
+  overflow: hidden;
+  will-change: transform;
+}
+
+.zoom-image-container img {
+  transition: transform 0.1s linear;
+  will-change: transform;
+}
+
+/* ========================================
+   HOVER EFFECTS
+   ======================================== */
+.hover-lift {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+.hover-zoom img {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hover-zoom:hover img {
+  transform: scale(1.05);
+}
+
+.btn-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-hover:hover {
+  transform: scale(1.03);
+}
+
+.btn-hover:active {
+  transform: scale(0.98);
+}
+
+/* ========================================
+   SMOOTH SCROLL
+   ======================================== */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ========================================
+   REDUCED MOTION
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+  .anim-fade-up,
+  .anim-fade-down,
+  .anim-fade-left,
+  .anim-fade-right,
+  .anim-scale-up,
+  .anim-pop-in,
+  .anim-split-reveal,
+  .anim-width-grow,
+  .anim-slide-up-bounce,
+  .anim-rotate-in {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+    transition: none !important;
+  }
+
+  .anim-ken-burns,
+  .anim-float,
+  .anim-float-delayed,
+  .anim-pulse-glow {
+    animation: none !important;
+  }
+
+  .carousel-track {
+    animation: none !important;
+  }
+
+  .tilt-container {
+    transition: none !important;
+  }
 }
