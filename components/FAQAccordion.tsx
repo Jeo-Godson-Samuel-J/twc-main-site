@@ -12,36 +12,32 @@ interface FAQAccordionProps {
   light?: boolean;
 }
 
-export default function FAQAccordion({ items, light = false }: FAQAccordionProps) {
+export default function FAQAccordion({ items }: FAQAccordionProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const toggle = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
-  const borderColor = light ? "border-zinc-700" : "border-zinc-200";
-  const textColor = light ? "text-white" : "text-brand-black";
-  const bodyColor = light ? "text-zinc-300" : "text-zinc-600";
-
   return (
-    <div className="w-full space-y-0">
+    <div className="w-full space-y-0 border-t border-[#e1c0b1]/50">
       {items.map((item, index) => {
         const isOpen = openIndex === index;
         return (
-          <div key={index} className={`border-b ${borderColor}`}>
+          <div key={index} className="border-b border-[#e1c0b1]/50">
             <button
               onClick={() => toggle(index)}
-              className={`flex w-full items-center justify-between py-6 text-left transition-colors hover:text-brand-orange group`}
+              className="flex w-full items-center justify-between py-6 text-left transition-colors group cursor-pointer"
               aria-expanded={isOpen}
             >
-              <span className={`text-subsection pr-8 ${textColor} group-hover:text-brand-orange transition-colors`}>
+              <span className="font-serif font-medium text-xl md:text-2xl text-[#1b1c1c] group-hover:text-[#f36801] transition-colors pr-6">
                 {item.question}
               </span>
               <span
-                className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition-all duration-300 ${
+                className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full transition-all duration-300 ${
                   isOpen
-                    ? "bg-brand-orange text-white rotate-45"
-                    : `${light ? "bg-zinc-800" : "bg-zinc-100"} ${textColor}`
+                    ? "bg-[#f36801] text-white rotate-45"
+                    : "bg-[#f5f3f3] text-[#1b1c1c] group-hover:bg-[#f36801]/10 group-hover:text-[#f36801]"
                 }`}
               >
                 <svg
@@ -57,7 +53,7 @@ export default function FAQAccordion({ items, light = false }: FAQAccordionProps
             </button>
             <div className={`accordion-content ${isOpen ? "open" : ""}`}>
               <div className="accordion-inner">
-                <p className={`text-body ${bodyColor} pb-6 pr-12`}>
+                <p className="font-sans text-body text-[#594236] pb-6 pr-8 leading-relaxed">
                   {item.answer}
                 </p>
               </div>
@@ -68,3 +64,4 @@ export default function FAQAccordion({ items, light = false }: FAQAccordionProps
     </div>
   );
 }
+

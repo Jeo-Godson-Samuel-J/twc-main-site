@@ -23,24 +23,24 @@ export default function Button({
   type = "button",
 }: ButtonProps) {
   const baseStyles =
-    "inline-flex items-center justify-center font-bold transition-all btn-hover focus:outline-none focus:ring-2 focus:ring-offset-2";
+    "inline-flex items-center justify-center font-sans font-semibold transition-all duration-200 active:scale-95 focus:outline-none focus:ring-2 focus:ring-offset-2";
 
   const variants: Record<string, string> = {
     primary:
-      "bg-brand-orange text-white hover:bg-brand-orange/90 focus:ring-brand-orange shadow-lg shadow-brand-orange/20",
+      "bg-[#f36801] text-white hover:bg-[#9f4200] focus:ring-[#f36801] shadow-sm hover:shadow",
     secondary:
-      "border-2 border-brand-black text-brand-black hover:bg-brand-black hover:text-white focus:ring-brand-black",
-    dark: "bg-brand-black text-white hover:bg-zinc-800 focus:ring-zinc-700",
+      "bg-[#f5f3f3] text-[#1b1c1c] border border-[#e1c0b1]/60 hover:bg-[#eae8e7] focus:ring-[#f36801]",
+    dark: "bg-[#1b1c1c] text-white hover:bg-[#353535] focus:ring-[#1b1c1c]",
     white:
-      "bg-white text-brand-black hover:bg-zinc-100 focus:ring-zinc-300 shadow-lg",
+      "bg-white text-[#1b1c1c] hover:bg-[#f5f3f3] border border-[#e1c0b1]/40 focus:ring-[#f36801] shadow-sm",
     outline:
-      "border-2 border-white text-white hover:bg-white/10 focus:ring-white",
+      "border border-[#f36801] text-[#f36801] hover:bg-[#f36801] hover:text-white focus:ring-[#f36801]",
   };
 
   const sizes: Record<string, string> = {
-    sm: "px-5 py-2.5 text-sm gap-2",
-    md: "px-7 py-3.5 text-sm gap-2.5",
-    lg: "px-9 py-4 text-base gap-3",
+    sm: "px-4 py-2 text-xs gap-2",
+    md: "px-6 py-3 text-sm gap-2.5",
+    lg: "px-8 py-3.5 text-base gap-3",
   };
 
   const roundedClass = rounded ? "rounded-full" : "rounded-xl";
@@ -48,7 +48,6 @@ export default function Button({
   const classes = `${baseStyles} ${variants[variant]} ${sizes[size]} ${roundedClass} ${className}`;
 
   if (href) {
-    // External links
     if (href.startsWith("http") || href.startsWith("//")) {
       return (
         <a href={href} target="_blank" rel="noopener noreferrer" className={classes}>
@@ -69,3 +68,4 @@ export default function Button({
     </button>
   );
 }
+

@@ -5,42 +5,45 @@ import FAQAccordion from "@/components/FAQAccordion";
 
 const faqs = [
   {
-    question: "How long is the service?",
+    question: "How long is the Sunday service?",
     answer:
-      "Our services typically last about 90 minutes. This includes worship, an encouraging message, and time for prayer.",
+      "Our services typically last about 90 minutes. This includes spirited worship, an encouraging biblical message, and time for personal prayer.",
   },
   {
     question: "What should I wear?",
     answer:
-      "Come as you are! You'll find people in everything from sarees to jeans. There's no dress code.",
+      "Come as you are! You'll find people in everything from traditional sarees & dhotis to casual shirts & jeans. There is no formal dress code.",
   },
   {
     question: "Is there something for my kids?",
     answer:
-      "Yes! Spark Kids runs alongside both services with fun, age-appropriate learning in a safe and loving environment.",
+      "Yes! Spark Kids runs alongside both our 8:00 AM and 10:30 AM services with fun, age-appropriate teaching in a safe and loving environment.",
   },
   {
-    question: "What can I expect on my first visit?",
+    question: "Where do I park?",
     answer:
-      "When you arrive, our greeters will welcome you at the door and help you find a seat. Expect uplifting worship, a relevant message, and a friendly community.",
+      "Parking is available directly around Kanishk Complex on Paneer Nagar Main Road. Our volunteer greeters at the entrance will assist you.",
   },
   {
     question: "How do I get involved or request prayer?",
     answer:
-      "Our team is available after every service at the prayer altar, or you can connect with us online through our Connect page.",
+      "Our pastoral team is available after every service at the prayer altar, or you can connect with us online anytime through our Connect page.",
   },
 ];
 
 export default function VisitFAQ() {
   return (
-    <section className="py-24 bg-white" id="plan-visit">
+    <section className="py-20 lg:py-28 bg-[#fbf9f8]" id="plan-visit">
       <div className="max-w-3xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-[#1a365d] mb-4">
+        <div className="text-center mb-14 space-y-3">
+          <span className="text-xs font-sans font-semibold uppercase tracking-widest text-[#9f4200]">
+            Frequently Asked Questions
+          </span>
+          <h2 className="font-serif font-medium text-4xl md:text-5xl text-[#1b1c1c]">
             What to Expect
           </h2>
-          <p className="text-slate-600 text-lg">
-            We want you to feel comfortable and at home from the moment you arrive.
+          <p className="font-sans text-[#594236] text-base max-w-xl mx-auto">
+            We want you to feel comfortable, welcomed, and at home from the moment you step into Trinity Worship Center.
           </p>
         </div>
         <FAQAccordion items={faqs} />
@@ -48,4 +51,3 @@ export default function VisitFAQ() {
     </section>
   );
 }
-

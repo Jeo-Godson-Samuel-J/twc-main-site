@@ -1,141 +1,130 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
+import SermonCard from "@/components/SermonCard";
 
 const sermons = [
   {
-    title: "Finding Peace in the Chaos",
+    title: "Walking in Unshakable Hope",
     description:
-      "In this week's message, we explore how to maintain spiritual equilibrium when the world around us feels unpredictable. Discover practical steps rooted in ancient wisdom to anchor your daily life.",
+      "In this week's message, Pastor Praveen David explores how to maintain spiritual equilibrium when the world around us feels unpredictable. Discover practical steps rooted in God's promises to anchor your daily life.",
     featured: true,
     speaker: "Pastor Praveen David",
-    date: "Latest Service",
+    date: "August 2026",
+    duration: "42 min",
+    series: "Unshakable Faith",
+    watchUrl: "https://youtube.com",
+    thumbnail:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuB4Y37DWLBcwjrr1DKkyvzrWQnp4Bp_PHYmo_u5msK5WemwJYZsZNWfI6YCK84j1WEZOmp-qNpQ4eQ-pcQ2IOAkUhR9V-9ABO6d4q9rkxpWRb589IK2a5Xyg69SeFgyGUg06Zn7bv1fivgPXJy0FhYi8e6bIj6XaMlF9oLx36o0POOM0PXpLCdzm9OKBwNvjeFV9Bj_RKqxqUZJ31ScP9Fk09X8xLa9et__j1JpH3KKv7QDM7P91_H9",
   },
   {
     title: "The Foundation of Hope: Building on Solid Ground",
     description:
-      "Understanding what it means to build your life and family on an unshakeable spiritual foundation.",
+      "Understanding what it means to build your life, career, and family on an unshakeable spiritual foundation.",
     featured: false,
     speaker: "Pastor Praveen David",
-    date: "2 weeks ago",
+    date: "July 2026",
+    duration: "38 min",
+    series: "Kingdom Builders",
+    watchUrl: "https://youtube.com",
+    thumbnail:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuAJWDpsFP0MGUSBv8HhEZrxwn-3NPBgbQ85dVuh8-lsgFQhx8kIvOLTsG2YnaGYq5DzL-W-fyRNMGe3L1JXpx2UZe4NzsgXsmapuVK4-eGPi5gKzosZ8Ndc8p0vkuv63FgXSTftHjTRF-oj1Wlqv1X5RA15xRXDB2aJ4fqszEUz9uLl5Zm_6R0jrmH9-9mCWxlyknvpjQE-c3NZi_CFAEVNkFa22UC8d68oB1Fozq6Ed3eoq3sAu4u6",
   },
   {
-    title: "Community in Practice",
+    title: "Community in Practice: Living Out Authentic Love",
     description:
-      "Living out authentic Christian community beyond Sunday morning gatherings.",
+      "Living out authentic Christian community beyond Sunday morning gatherings through active care and fellowship.",
     featured: false,
     speaker: "Pastor Pratima David",
-    date: "3 weeks ago",
+    date: "July 2026",
+    duration: "45 min",
+    series: "One Another",
+    watchUrl: "https://youtube.com",
+    thumbnail:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuAYXNd2WFGNGK6U4Jo8z0e0IFegevRqVDN_aXiraGJYyYAAxxYMh5_gEuJ3juohSI5OMoox235LDGdxlQ7RnpNmEgEAJQYnOTxlOGFO_ecukmbIz-ZL6T7nZBoIdrgJKL9Rh6gPKcgZwEQXJ2DURYykzJ3Y-QFYdlz5RNlP7EXpyzQXdL9Bo29gHRNdzRxivm5F0oVWOmOqRHuv935vHy4lhERCXHWCnhwT33rM8T3RCJOIB8alXOXj",
   },
   {
-    title: "Grace Under Pressure",
+    title: "Grace Under Pressure: Overcoming Difficult Seasons",
     description:
-      "How God's grace empowers us during seasons of trial and difficulty.",
+      "How God's grace empowers us during seasons of trial, stress, and transition.",
     featured: false,
     speaker: "Pastor Praveen David",
-    date: "1 month ago",
-  },
-  {
-    title: "Worship Night: A Special Service",
-    description:
-      "Creating an environment of Bright Hospitality and Invigorated Peace for our community.",
-    featured: false,
-    speaker: "TWC Worship Team",
-    date: "Special Event",
+    date: "June 2026",
+    duration: "40 min",
+    series: "Psalms of Grace",
+    watchUrl: "https://youtube.com",
+    thumbnail:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuCDwx7KjhBu3etqiXkc9Bn0fcIuS9aI2eXnsSFO9yDmjZBta6brAQ1_FJ_yv94EFxR2jPu3vOSe5PDouw8KogW5UeLuhYR-Qp6n0KioZeP9ctfs_6wpjSDwbT322NeRxrU-7jvUhCeHP96Izx_tmhGfcBIm6b_i3-S4EGVcJeyyY_EnYUN9-_476yOtYYSc-W90GrMFHfzhNWxsPhq-zbl4zzNT8JTx_jrjr4mI9fhxV8RBA3KUqEWL",
   },
 ];
 
 export default function SermonGrid() {
+  const [activeSeries, setActiveSeries] = useState("All");
   const featuredSermon = sermons.find((s) => s.featured);
   const otherSermons = sermons.filter((s) => !s.featured);
 
   return (
-    <section className="py-16 px-6 bg-white">
-      <div className="max-w-7xl mx-auto space-y-12">
+    <section className="pt-6 sm:pt-8 pb-16 px-4 sm:px-6 md:px-8 bg-[#fbf9f8]">
+      <div className="max-w-7xl mx-auto space-y-10">
         {/* Featured Sermon */}
         {featuredSermon && (
-          <div className="bg-[#faf9f8] rounded-3xl border border-[#e0dedc] p-8 md:p-12 shadow-sm grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            <div className="space-y-4">
-              <span className="inline-block px-3 py-1 bg-[#f36801] text-white text-xs font-bold rounded-full uppercase tracking-wider">
-                Featured Message
-              </span>
-              <h2 className="text-3xl md:text-4xl font-bold text-[#1a1918]">
-                {featuredSermon.title}
-              </h2>
-              <p className="text-base text-[#4d4c4b] leading-relaxed">
-                {featuredSermon.description}
-              </p>
-              <div className="pt-2 flex items-center gap-4 text-sm text-[#4d4c4b] font-medium">
-                <span>{featuredSermon.speaker}</span>
-                <span>•</span>
-                <span>{featuredSermon.date}</span>
-              </div>
-              <a
-                href="https://youtube.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-[#f36801] text-white font-medium rounded-full hover:bg-orange-600 transition-colors shadow-sm"
-              >
-                <span className="material-symbols-outlined text-xl">
-                  play_circle
-                </span>
-                Watch Now
-              </a>
-            </div>
-            <div className="relative aspect-video rounded-2xl overflow-hidden bg-black/5 border border-[#e0dedc] flex items-center justify-center group cursor-pointer">
-              {/* eslint-disable-next-html-element-suppression */}
-              <img
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4Y37DWLBcwjrr1DKkyvzrWQnp4Bp_PHYmo_u5msK5WemwJYZsZNWfI6YCK84j1WEZOmp-qNpQ4eQ-pcQ2IOAkUhR9V-9ABO6d4q9rkxpWRb589IK2a5Xyg69SeFgyGUg06Zn7bv1fivgPXJy0FhYi8e6bIj6XaMlF9oLx36o0POOM0PXpLCdzm9OKBwNvjeFV9Bj_RKqxqUZJ31ScP9Fk09X8xLa9et__j1JpH3KKv7QDM7P91_H9"
-                alt={featuredSermon.title}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors flex items-center justify-center">
-                <span className="material-symbols-outlined text-white text-6xl drop-shadow-md">
-                  play_circle
-                </span>
-              </div>
-            </div>
-          </div>
+          <SermonCard
+            title={featuredSermon.title}
+            speaker={featuredSermon.speaker}
+            date={featuredSermon.date}
+            duration={featuredSermon.duration}
+            series={featuredSermon.series}
+            watchUrl={featuredSermon.watchUrl}
+            thumbnail={featuredSermon.thumbnail}
+            featured
+          />
         )}
 
-        {/* Previous Messages */}
-        <div>
-          <h3 className="text-2xl font-bold text-[#1a1918] mb-6">
-            Previous Messages
-          </h3>
+
+        {/* Sermon Library Header & Series Filter */}
+        <div className="space-y-6 pt-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <h3 className="font-serif font-medium text-3xl text-[#1b1c1c]">
+              Recent Message Library
+            </h3>
+            <div className="flex items-center gap-2 overflow-x-auto pb-2">
+              {["All", "Unshakable Faith", "Kingdom Builders", "Psalms of Grace"].map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setActiveSeries(cat)}
+                  className={`px-4 py-1.5 rounded-full text-xs font-sans font-semibold transition-all ${
+                    activeSeries === cat
+                      ? "bg-[#f36801] text-white"
+                      : "bg-white text-[#594236] border border-[#e1c0b1]/50 hover:bg-[#f5f3f3]"
+                  }`}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {otherSermons.map((sermon) => (
-              <div
-                key={sermon.title}
-                className="bg-[#faf9f8] border border-[#e0dedc] rounded-2xl p-6 hover:shadow-md transition-all flex flex-col justify-between"
-              >
-                <div>
-                  <h4 className="text-xl font-bold text-[#1a1918] mb-2 leading-snug">
-                    {sermon.title}
-                  </h4>
-                  <p className="text-sm text-[#4d4c4b] leading-relaxed mb-4">
-                    {sermon.description}
-                  </p>
-                </div>
-                <div className="pt-4 border-t border-[#e0dedc] flex items-center justify-between">
-                  <span className="text-xs text-[#4d4c4b] font-medium">
-                    {sermon.speaker}
-                  </span>
-                  <a
-                    href="https://youtube.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[#f36801] font-semibold text-sm flex items-center gap-1 hover:gap-2 transition-all"
-                  >
-                    Watch <span className="material-symbols-outlined text-base">arrow_forward</span>
-                  </a>
-                </div>
-              </div>
-            ))}
+            {otherSermons
+              .filter((s) => activeSeries === "All" || s.series === activeSeries)
+              .map((sermon) => (
+                <SermonCard
+                  key={sermon.title}
+                  title={sermon.title}
+                  speaker={sermon.speaker}
+                  date={sermon.date}
+                  duration={sermon.duration}
+                  series={sermon.series}
+                  watchUrl={sermon.watchUrl}
+                  thumbnail={sermon.thumbnail}
+                />
+              ))}
           </div>
         </div>
       </div>
     </section>
   );
 }
+
 

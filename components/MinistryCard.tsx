@@ -14,23 +14,26 @@ export default function MinistryCard({
   icon,
 }: MinistryCardProps) {
   return (
-    <div className="group relative flex flex-col items-start rounded-2xl border border-zinc-800 bg-zinc-900/60 p-6 backdrop-blur-sm hover-lift min-w-[260px] max-w-[280px] shrink-0">
-      {/* Gradient accent top */}
-      <div className="absolute top-0 left-6 right-6 h-0.5 bg-gradient-to-r from-brand-orange to-brand-lime opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full" />
+    <div className="group relative flex flex-col items-start rounded-2xl border border-[#e1c0b1]/50 bg-white p-6 shadow-sm hover-lift min-w-[260px] max-w-[280px] shrink-0">
+      {/* Accent top line */}
+      <div className="absolute top-0 left-6 right-6 h-0.5 bg-[#f36801] opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full" />
 
       {/* Icon */}
-      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-orange/10 text-brand-orange mb-4 group-hover:bg-brand-orange/20 transition-colors">
+      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#f36801]/10 text-[#f36801] mb-4 group-hover:bg-[#f36801] group-hover:text-white transition-colors">
         {icon}
       </div>
 
       {/* Name */}
-      <h3 className="font-heading text-lg font-bold text-white">{name}</h3>
+      <h3 className="font-serif font-medium text-xl text-[#1b1c1c]">{name}</h3>
 
       {/* Subtitle */}
-      <p className="text-sm text-zinc-400 mt-1">{subtitle}</p>
+      <p className="text-sm font-sans text-[#594236] mt-1 leading-relaxed">{subtitle}</p>
 
       {/* Time */}
-      <span className="text-label text-brand-orange/80 mt-3">{time}</span>
+      <span className="text-xs font-sans font-semibold uppercase tracking-wider text-[#9f4200] mt-4">
+        {time}
+      </span>
     </div>
   );
 }
+

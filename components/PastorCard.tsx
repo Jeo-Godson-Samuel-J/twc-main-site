@@ -32,12 +32,12 @@ export default function PastorCard({
   return (
     <section
       ref={ref}
-      className="relative flex w-full items-center justify-center bg-white py-24 lg:py-32 overflow-hidden"
+      className="relative flex w-full items-center justify-center bg-[#fbf9f8] py-20 lg:py-28 overflow-hidden"
     >
-      <div className="mx-auto grid max-w-7xl w-full grid-cols-1 items-center gap-12 px-6 sm:px-8 lg:grid-cols-2 lg:gap-20">
+      <div className="mx-auto grid max-w-7xl w-full grid-cols-1 items-center gap-12 px-6 lg:grid-cols-2 lg:gap-20">
         {/* Portrait */}
         <div
-          className={`relative overflow-hidden rounded-2xl ${imagePosition === "right" ? "lg:order-2" : ""} ${imageAnimClass} ${visible ? "anim-visible" : ""}`}
+          className={`relative overflow-hidden rounded-2xl border border-[#e1c0b1]/40 shadow-sm ${imagePosition === "right" ? "lg:order-2" : ""} ${imageAnimClass} ${visible ? "anim-visible" : ""}`}
           style={{ transitionDelay: "100ms" }}
         >
           <div className="hover-zoom aspect-[3/4] relative">
@@ -57,17 +57,23 @@ export default function PastorCard({
           style={{ transitionDelay: "300ms" }}
         >
           {/* Decorative quotation marks */}
-          <div className="absolute -top-8 -left-4 text-[12rem] font-heading font-black text-zinc-100 leading-none select-none pointer-events-none z-0">
+          <div className="absolute -top-12 -left-6 text-[10rem] font-serif font-black text-[#eae8e7] leading-none select-none pointer-events-none z-0">
             &ldquo;
           </div>
 
           <div className="relative z-10">
-            <span className="text-label text-brand-orange">{heading}</span>
-            <h2 className="text-section text-brand-black mt-3">{names}</h2>
-            <div className="mt-5 h-1 w-16 bg-brand-orange rounded-full" />
-            <p className="text-body text-zinc-600 mt-6">{biography}</p>
+            <span className="text-xs font-sans font-semibold uppercase tracking-widest text-[#9f4200]">
+              {heading}
+            </span>
+            <h2 className="font-serif font-medium text-3xl lg:text-4xl text-[#1b1c1c] mt-2 leading-tight">
+              {names}
+            </h2>
+            <div className="mt-4 h-[2px] w-16 bg-[#f36801] rounded-full" />
+            <p className="text-body text-[#594236] mt-6 leading-relaxed">
+              {biography}
+            </p>
             <div className="mt-8">
-              <Button href={ctaHref} variant="dark" size="md">
+              <Button href={ctaHref} variant="primary" size="md">
                 {ctaLabel}
               </Button>
             </div>
@@ -77,3 +83,4 @@ export default function PastorCard({
     </section>
   );
 }
+

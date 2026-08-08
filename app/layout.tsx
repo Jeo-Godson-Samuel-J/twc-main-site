@@ -1,13 +1,21 @@
 import type { Metadata } from "next";
-import { Teachers } from "next/font/google";
+import { EB_Garamond, Hanken_Grotesk } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-const teachers = Teachers({
-  variable: "--font-teachers",
+const ebGaramond = EB_Garamond({
+  variable: "--font-eb-garamond",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
+});
+
+const hankenGrotesk = Hanken_Grotesk({
+  variable: "--font-hanken-grotesk",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -24,7 +32,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${teachers.variable} h-full scroll-smooth antialiased`}
+      className={`${ebGaramond.variable} ${hankenGrotesk.variable} h-full scroll-smooth antialiased`}
     >
       <head>
         <link
@@ -32,7 +40,7 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
         />
       </head>
-      <body className={`${teachers.className} min-h-full flex flex-col bg-[#faf9f8] text-[#1a1918] selection:bg-[#f36801] selection:text-white font-sans`}>
+      <body className={`${hankenGrotesk.className} min-h-full flex flex-col bg-[#fbf9f8] text-[#1b1c1c] selection:bg-[#f36801] selection:text-white font-sans`}>
         <Navbar />
         <main className="flex-grow flex flex-col w-full">{children}</main>
         <Footer />
@@ -40,5 +48,6 @@ export default function RootLayout({
     </html>
   );
 }
+
 
 
