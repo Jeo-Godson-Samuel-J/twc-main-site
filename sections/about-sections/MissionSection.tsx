@@ -1,38 +1,63 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 
 export default function MissionSection() {
   return (
-    <section className="py-20 lg:py-28 px-6 bg-[#fbf9f8] relative overflow-hidden">
-      {/* Subtle background accent */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#f36801]/10 rounded-full blur-[100px] opacity-30 -translate-y-1/2 translate-x-1/4" />
+    <section className="w-full bg-[#fbf9f8] py-16 sm:py-20 lg:py-24 px-4 sm:px-8 md:px-12 lg:px-16">
+      <div className="max-w-[1360px] mx-auto rounded-3xl sm:rounded-[2.25rem] bg-[#f3efec] border border-[#e1c0b1]/40 px-8 sm:px-12 md:px-16 lg:px-24 py-16 sm:py-20 lg:py-28">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          {/* Left Column: Bold Multi-Line Mission Statement + Outlined Pill Buttons */}
+          <div className="lg:col-span-6 flex flex-col items-start space-y-7 sm:space-y-9">
+            <p className="font-sans font-bold text-xs sm:text-sm uppercase tracking-[0.2em] text-[#9f4200]">
+              Our Purpose &amp; Calling
+            </p>
 
-      <div className="max-w-3xl mx-auto text-center relative z-10 space-y-4">
-        <span className="inline-block mb-2 text-[#f36801]">
-          <span
-            className="material-symbols-outlined text-5xl"
-            style={{ fontVariationSettings: "'FILL' 1" }}
-          >
-            explore
-          </span>
-        </span>
-        <span className="text-xs font-sans font-semibold uppercase tracking-widest text-[#9f4200] block">
-          Our Purpose
-        </span>
-        <h2 className="font-serif font-medium text-4xl md:text-5xl text-[#1b1c1c]">
-          Our Mission
-        </h2>
-        <p className="font-serif text-2xl md:text-3xl text-[#f36801] font-semibold pt-2">
-          Evangelize • Empower • Educate
-        </p>
-        <div className="h-[2px] w-20 bg-[#f36801] mx-auto my-4 rounded-full" />
-        <p className="font-sans text-lg text-[#594236] leading-relaxed">
-          We exist to share the good news of Jesus through the truth of God&apos;s Word and the testimony of transformed lives. We strive to empower our community in Mogappair to live with divine purpose and educate the next generation in faith, integrity, and love.
-        </p>
+            <h2 className="font-sans font-bold text-4xl sm:text-5xl lg:text-[3.5rem] text-[#231815] tracking-tight leading-[1.08]">
+              Evangelize,
+              <br />
+              Empower,
+              <br />
+              Educate, <span className="text-[#f36801]">and love.</span>
+            </h2>
+
+            <p className="font-sans text-base sm:text-lg text-[#594236] leading-relaxed max-w-lg">
+              Ready to experience Trinity Worship Center in person? Join us
+              this Sunday at 8:00 AM (Tamil) or 10:30 AM (English) in
+              Mogappair, Chennai.
+            </p>
+
+            <div className="flex flex-wrap items-center gap-4 pt-1">
+              <Link
+                href="/visit"
+                className="inline-flex items-center justify-center px-10 py-3.5 rounded-full bg-[#f36801] hover:bg-[#9f4200] text-white font-sans font-bold text-xs sm:text-sm uppercase tracking-[0.18em] shadow-sm active:scale-95 transition-all duration-200"
+              >
+                Plan Your Visit
+              </Link>
+
+              <Link
+                href="/connect"
+                className="inline-flex items-center justify-center px-10 py-3.5 rounded-full border border-[#231815]/70 text-[#231815] font-sans font-bold text-xs sm:text-sm uppercase tracking-[0.18em] hover:bg-[#231815] hover:text-white active:scale-95 transition-all duration-200"
+              >
+                Get Connected
+              </Link>
+            </div>
+          </div>
+
+          {/* Right Column: Landscape Church Community Photo */}
+          <div className="lg:col-span-6 w-full">
+            <div className="relative w-full aspect-[16/10] sm:aspect-[3/2] rounded-2xl overflow-hidden shadow-md bg-[#e8e2de]">
+              {/* eslint-disable-next-html-element-suppression */}
+              <img
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJWDpsFP0MGUSBv8HhEZrxwn-3NPBgbQ85dVuh8-lsgFQhx8kIvOLTsG2YnaGYq5DzL-W-fyRNMGe3L1JXpx2UZe4NzsgXsmapuVK4-eGPi5gKzosZ8Ndc8p0vkuv63FgXSTftHjTRF-oj1Wlqv1X5RA15xRXDB2aJ4fqszEUz9uLl5Zm_6R0jrmH9-9mCWxlyknvpjQE-c3NZi_CFAEVNkFa22UC8d68oB1Fozq6Ed3eoq3sAu4u6"
+                alt="Trinity Worship Center community welcoming visitors"
+                className="w-full h-full object-cover object-center"
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
 }
-
-

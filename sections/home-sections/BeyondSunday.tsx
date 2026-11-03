@@ -1,128 +1,226 @@
 "use client";
 
-import React from "react";
-import { useScrollReveal } from "@/hooks/useScrollReveal";
-import InfiniteCarousel from "@/components/InfiniteCarousel";
-import MinistryCard from "@/components/MinistryCard";
+import React, { useEffect, useRef } from "react";
+import Link from "next/link";
+import gsap from "gsap";
 
 const ministries = [
   {
-    name: "Spark Kids",
-    time: "Sundays 10:30 AM",
+    number: "01",
+    titleFirst: "Spark",
+    titleHighlight: "Kids.",
+    time: "Sundays • 8:00 AM & 10:30 AM",
     subtitle: "Fun & faith for ages 3–12",
-    icon: (
-      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
-      </svg>
-    ),
+    description:
+      "A safe, joyful, and engaging environment where children discover God’s Word through interactive Bible storytelling, worship, and age-appropriate small groups during both Sunday services.",
+    icon: "child_care",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuBjYRlECmDxW9AO50K5sEXsHezJOm-2LqLhynS0szreRK3QrhWsyIhlS_BJ0LTB6IvfRim6YUqeHb7GsSyZhgzLFqrYcFqBsStHbUED7MCc8wppkUGtgt4LisqPqZEn3Z9kBXII2wILfgkQQ_HS3UcClABCBGdp6KdxIhyhuneu9HybdKhGRXlJQ5VqPzf0fltcAOvsmz4yIeo7zj_ziKl9nln_MN1PCwz6guDduiBezy9t-0TzQZf6",
   },
   {
-    name: "Transit Youth",
-    time: "Fridays 7:00 PM",
+    number: "02",
+    titleFirst: "Transit",
+    titleHighlight: "Youth.",
+    time: "Fridays • 7:00 PM",
     subtitle: "Teens finding purpose",
-    icon: (
-      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" />
-      </svg>
-    ),
+    description:
+      "Middle and high school students gathering every Friday night for high-energy worship, honest conversations about faith and life, and building lifelong Christ-centered friendships.",
+    icon: "local_fire_department",
+    image: "/hero-worship.png",
   },
   {
-    name: "Young Adults",
-    time: "Saturdays 6:00 PM",
+    number: "03",
+    titleFirst: "Young",
+    titleHighlight: "Adults.",
+    time: "Saturdays • 6:00 PM",
     subtitle: "Community for 18–30s",
-    icon: (
-      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
-      </svg>
-    ),
+    description:
+      "University students and young professionals navigating career, relationships, and calling together through authentic fellowship, mentorship, and Scripture study.",
+    icon: "groups",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuAJWDpsFP0MGUSBv8HhEZrxwn-3NPBgbQ85dVuh8-lsgFQhx8kIvOLTsG2YnaGYq5DzL-W-fyRNMGe3L1JXpx2UZe4NzsgXsmapuVK4-eGPi5gKzosZ8Ndc8p0vkuv63FgXSTftHjTRF-oj1Wlqv1X5RA15xRXDB2aJ4fqszEUz9uLl5Zm_6R0jrmH9-9mCWxlyknvpjQE-c3NZi_CFAEVNkFa22UC8d68oB1Fozq6Ed3eoq3sAu4u6",
   },
   {
-    name: "Men's Fellowship",
-    time: "1st Saturday 8:00 AM",
+    number: "04",
+    titleFirst: "Men’s",
+    titleHighlight: "Fellowship.",
+    time: "1st Saturday • 8:00 AM",
     subtitle: "Brotherhood & accountability",
-    icon: (
-      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M11.42 15.17l-5.56-5.56a2.002 2.002 0 012.83-2.83l5.56 5.56m0 0l5.56 5.56a2.002 2.002 0 01-2.83 2.83l-5.56-5.56m0 0L8.59 12.34m2.83 2.83L14.25 18" />
-      </svg>
-    ),
+    description:
+      "Equipping men to lead with integrity at home, in the workplace, and in the church through brotherhood, prayer, accountability, and practical biblical wisdom.",
+    icon: "man",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuDPdxTRB2UdtDbAs5WwjBT7wkJuWeJ149Rt4bdbUXgiXY9MdHQBtomHgrUP6M3UfwaFp2X7eq-UNGih9EveBezXbZgePwmDmg6kt1oKiJE9Y0rT-J9CjpnyDwcWJryCGoTgIW_UdR3jPrn5gclyVijz2D4Lpgi0Q4S3ckbqK0QIQIxLeCo0ixqzknMIJw_QHyv73DVb6bTcB7MdHq4XWkKHe3PlnV5zhdfMDq7aQiNLWHKLM44PkVza",
   },
   {
-    name: "Women's Fellowship",
-    time: "2nd Saturday 10:00 AM",
+    number: "05",
+    titleFirst: "Women’s",
+    titleHighlight: "Fellowship.",
+    time: "2nd Saturday • 10:00 AM",
     subtitle: "Sisterhood & spiritual growth",
-    icon: (
-      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-      </svg>
-    ),
+    description:
+      "A warm sisterhood where women of all generations encourage one another, grow in grace and spiritual gifts, and stand together in fervent prayer.",
+    icon: "favorite",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuA5zOfiaZny82QjSV5E2VdAZ_eYcxiV6R4mB47TRQZILrX9JT8Tx_fBfLiRNCQNfwlIWFXloagakH2j-fwKcBjOyxI30gH94t99AUU0nktJn4AJ42CogSFToJsAUDqZetnIqCtwGrTNS_K91OkuKFBqixXfA-MyVtPNiCZZ3jfB-7tQTPkOhc2ZDoqoMAOfRwxTU1sDgkaIj1vRvkrhC3HHw62fWjUXq75UXndk164Oks9hSVMlCJ8Q",
   },
   {
-    name: "Midweek Prayer",
-    time: "Wednesdays 7:00 PM",
+    number: "06",
+    titleFirst: "Midweek",
+    titleHighlight: "Prayer.",
+    time: "Wednesdays • 7:00 PM",
     subtitle: "Intercession & worship",
-    icon: (
-      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
-    ),
+    description:
+      "The spiritual engine of Trinity Worship Center. Gather midweek as a church family to seek God’s presence, pray for one another, and intercede for Mogappair and Chennai.",
+    icon: "volunteer_activism",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuCDwx7KjhBu3etqiXkc9Bn0fcIuS9aI2eXnsSFO9yDmjZBta6brAQ1_FJ_yv94EFxR2jPu3vOSe5PDouw8KogW5UeLuhYR-Qp6n0KioZeP9ctfs_6wpjSDwbT322NeRxrU-7jvUhCeHP96Izx_tmhGfcBIm6b_i3-S4EGVcJeyyY_EnYUN9-_476yOtYYSc-W90GrMFHfzhNWxsPhq-zbl4zzNT8JTx_jrjr4mI9fhxV8RBA3KUqEWL",
   },
 ];
 
 export default function BeyondSunday() {
-  const [ref, visible] = useScrollReveal<HTMLElement>({ threshold: 0.15 });
+  const runwayRef = useRef<HTMLDivElement | null>(null);
+  const trackRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const runway = runwayRef.current;
+    const track = trackRef.current;
+    if (!runway || !track) return;
+
+    const totalSlides = ministries.length;
+
+    // Slower, weighted GSAP damping on the track's horizontal translation
+    const xTo = gsap.quickTo(track, "xPercent", {
+      duration: 0.95,
+      ease: "power3.out",
+    });
+
+    const handleScroll = () => {
+      const rect = runway.getBoundingClientRect();
+      const scrollableDistance = runway.offsetHeight - window.innerHeight;
+      if (scrollableDistance <= 0) return;
+
+      const rawProgress = -rect.top / scrollableDistance;
+
+      // Hold buffer at the start (6%) and end (8%) so the first and last cards pause comfortably
+      const mappedProgress = Math.min(
+        1,
+        Math.max(0, (rawProgress - 0.06) / 0.86)
+      );
+
+      // Translate track horizontally across all 6 slides (-100% per slide step)
+      xTo(-mappedProgress * (totalSlides - 1) * 100);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll, { passive: true });
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+      gsap.killTweensOf(track);
+    };
+  }, []);
 
   return (
-    <section
-      ref={ref}
-      className="relative w-full bg-[#fbf9f8] py-20 lg:py-28 overflow-hidden border-b border-[#e1c0b1]/40"
-    >
-      {/* Heading */}
-      <div className="mx-auto max-w-4xl px-6 text-center mb-16">
-        <span className="text-xs font-sans font-semibold uppercase tracking-widest text-[#9f4200]">
-          Active Community
-        </span>
-        <h2
-          className={`font-serif font-medium text-4xl lg:text-5xl text-[#1b1c1c] mt-2 anim-fade-up ${
-            visible ? "anim-visible" : ""
-          }`}
-          style={{ transitionDelay: "100ms" }}
-        >
-          Beyond Sunday
-        </h2>
-        <div
-          className={`mx-auto mt-4 h-1 w-16 bg-[#f36801] rounded-full anim-width-grow ${
-            visible ? "anim-visible" : ""
-          }`}
-          style={{ transitionDelay: "300ms", transformOrigin: "center" }}
-        />
-        <p
-          className={`font-sans text-lg text-[#594236] mt-6 max-w-2xl mx-auto anim-fade-up ${
-            visible ? "anim-visible" : ""
-          }`}
-          style={{ transitionDelay: "400ms" }}
-        >
-          Church isn&rsquo;t just one day a week. Discover vibrant ministries and small groups that meet throughout the week — there&rsquo;s a community for everyone.
-        </p>
-      </div>
-
-      {/* Infinite Carousel */}
+    <section className="relative w-full bg-[#fbf9f8] text-[#1b1c1c] border-b border-[#e1c0b1]/40">
+      {/* Longer 960vh Scroll Runway (160vh per card) — slows down horizontal movement per scroll */}
       <div
-        className={`anim-fade-up ${visible ? "anim-visible" : ""}`}
-        style={{ transitionDelay: "600ms" }}
+        ref={runwayRef}
+        style={{ height: `${ministries.length * 160}vh` }}
+        className="relative w-full"
       >
-        <InfiniteCarousel speed={35}>
-          {ministries.map((ministry) => (
-            <MinistryCard
-              key={ministry.name}
-              name={ministry.name}
-              time={ministry.time}
-              subtitle={ministry.subtitle}
-              icon={ministry.icon}
-            />
-          ))}
-        </InfiniteCarousel>
+        {/* Sticky Full-Screen Viewport — locks the horizontal scroll in the center of the screen */}
+        <div className="sticky top-0 left-0 w-full h-screen pt-16 sm:pt-20 pb-6 flex flex-col justify-center overflow-hidden bg-[#fbf9f8] z-20">
+          {/* Top Header */}
+          <div className="w-full max-w-[1440px] mx-auto px-6 sm:px-10 md:px-16 lg:px-24 mb-5 sm:mb-7 shrink-0">
+            <div className="space-y-1.5">
+              <p className="font-sans font-bold text-xs sm:text-sm uppercase tracking-[0.2em] text-[#9f4200]">
+                Active Community
+              </p>
+              <h2 className="font-sans font-extrabold text-3xl sm:text-4xl lg:text-5xl uppercase tracking-[0.03em] leading-[1.06] text-[#1b1c1c]">
+                Beyond <span className="text-[#f36801]">Sunday</span>
+              </h2>
+            </div>
+          </div>
+
+          {/* Centered Horizontal Scroll Track — Each Slide Spans Full Screen Width with Left & Right Margins */}
+          <div
+            ref={trackRef}
+            className="flex w-full items-center flex-nowrap will-change-transform"
+          >
+            {ministries.map((ministry) => (
+              <div
+                key={ministry.number}
+                className="w-full shrink-0 px-6 sm:px-10 md:px-16 lg:px-24"
+              >
+                {/* Full-Width Card Inside Margins: Image on Left, Content on Right */}
+                <div className="w-full max-w-[1440px] mx-auto rounded-3xl overflow-hidden bg-[#231815] text-white shadow-2xl border border-[#e1c0b1]/20 grid grid-cols-1 lg:grid-cols-12 h-[420px] sm:h-[450px] lg:h-[480px]">
+                  {/* Left Side: Full-Bleed Event Image */}
+                  <div className="lg:col-span-6 relative h-[190px] sm:h-[220px] lg:h-full overflow-hidden bg-[#1b1c1c]">
+                    {/* eslint-disable-next-html-element-suppression */}
+                    <img
+                      src={ministry.image}
+                      alt={`${ministry.titleFirst} ${ministry.titleHighlight} at Trinity Worship Center`}
+                      className="w-full h-full object-cover object-center"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#231815]/80 via-transparent to-black/20 lg:bg-gradient-to-r lg:from-transparent lg:via-transparent lg:to-[#231815]/40" />
+                  </div>
+
+                  {/* Right Side: Editorial Event Content */}
+                  <div className="lg:col-span-6 p-6 sm:p-8 md:p-10 lg:p-14 flex flex-col justify-center items-start space-y-4 sm:space-y-5 relative overflow-hidden">
+                    {/* Ambient Orange Glow */}
+                    <div
+                      aria-hidden="true"
+                      className="pointer-events-none absolute -bottom-16 -right-16 w-64 h-64 bg-[#f36801]/15 rounded-full blur-3xl"
+                    />
+
+                    {/* Schedule Pill */}
+                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#f36801]/15 border border-[#f36801]/30 text-[#f36801] font-sans font-bold text-xs uppercase tracking-[0.18em]">
+                      <span
+                        className="material-symbols-outlined text-base"
+                        style={{ fontVariationSettings: "'FILL' 1" }}
+                      >
+                        {ministry.icon}
+                      </span>
+                      <span>{ministry.time}</span>
+                    </div>
+
+                    {/* Bold Two-Tone Heading */}
+                    <div className="space-y-1">
+                      <p className="font-sans font-bold text-xs uppercase tracking-[0.2em] text-[#cfc4c5]">
+                        {ministry.subtitle}
+                      </p>
+                      <h3 className="font-sans font-bold text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-[1.08]">
+                        {ministry.titleFirst}{" "}
+                        <span className="text-[#f36801]">
+                          {ministry.titleHighlight}
+                        </span>
+                      </h3>
+                    </div>
+
+                    {/* Description */}
+                    <p className="font-sans text-sm sm:text-base lg:text-lg text-[#fbf9f8]/85 leading-relaxed max-w-xl line-clamp-3 sm:line-clamp-none">
+                      {ministry.description}
+                    </p>
+
+                    {/* Outlined Pill CTA */}
+                    <div className="pt-1">
+                      <Link
+                        href="/connect"
+                        className="inline-flex items-center justify-center px-8 py-3 rounded-full border border-white/80 text-white font-sans font-bold text-xs sm:text-sm uppercase tracking-[0.2em] hover:bg-[#f36801] hover:border-[#f36801] active:scale-95 transition-all duration-200"
+                      >
+                        Get Connected
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
 }
-

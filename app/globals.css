@@ -456,3 +456,43 @@ html {
     transition: none !important;
   }
 }
+
+
+/* ========================================
+   HERO CURVED ARC CAROUSEL (LEFT TO RIGHT)
+   ======================================== */
+@keyframes infiniteScrollRight {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.hero-arc-track {
+  display: flex;
+  width: max-content;
+  animation: infiniteScrollRight 48s linear infinite;
+  will-change: transform;
+}
+
+
+/* ========================================
+   CONTINUOUS TEXT MARQUEE (ALWAYS RUNNING)
+   ======================================== */
+@keyframes infiniteMarqueeLeft {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.marquee-always-track {
+  display: flex;
+  width: max-content;
+  animation: infiniteMarqueeLeft 28s linear infinite;
+  will-change: transform;
+}

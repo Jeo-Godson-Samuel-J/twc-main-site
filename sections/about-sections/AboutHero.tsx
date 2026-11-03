@@ -1,34 +1,131 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
+
+const aboutHeroPhotos = [
+  {
+    src: "https://lh3.googleusercontent.com/aida-public/AB6AXuBLL-dTxrGigHFkhZuidw7WQ2yFWTuH8pqqw7UEwC2a6Mbc8jL6ibYXu4RjIyBNadvBE4Nvmystj6AE9GBgjiqwtUrV8Qz838_2KATdlwsWWW0JRBjmKu_RaH8bagC6JAXPaTON6hoE2KbzVvn6jiOoGtNU5qQUcfL1YAiA-S9QURitP9cPWVxSl1mjiCTixDF6hsRl9KK4S9nWfo9JQV6t4xTLwZ3HH0UdBF7QJdpQhc-b3Mgo8HY9",
+    alt: "Trinity Worship Center heritage and early days in Mogappair",
+  },
+  {
+    src: "https://lh3.googleusercontent.com/aida-public/AB6AXuDPdxTRB2UdtDbAs5WwjBT7wkJuWeJ149Rt4bdbUXgiXY9MdHQBtomHgrUP6M3UfwaFp2X7eq-UNGih9EveBezXbZgePwmDmg6kt1oKiJE9Y0rT-J9CjpnyDwcWJryCGoTgIW_UdR3jPrn5gclyVijz2D4Lpgi0Q4S3ckbqK0QIQIxLeCo0ixqzknMIJw_QHyv73DVb6bTcB7MdHq4XWkKHe3PlnV5zhdfMDq7aQiNLWHKLM44PkVza",
+    alt: "Congregation gathering at Trinity Worship Center",
+  },
+  {
+    src: "/hero-worship.png",
+    alt: "Sunday worship service at Trinity Worship Center",
+  },
+  {
+    src: "https://lh3.googleusercontent.com/aida-public/AB6AXuDIV8jnX0zFx9zfWYAERPu713uTUidG89OYkUJ3Y10VPXXWvZKS_U_B1oW_oFSbr1mUMbQJJfrY_kadraZc_01ZT0yC3JxlK_Znrxx_ZmQoNFC6_arRzfjL3GS-e47jlpatcWIada_ejiIFmfIq4IyINd65HHhQSLDnlhdqC2vATvJJXyhFflu-Uvke62abrPlWQOEb1Oj8uPexxNNnfcCLR4oCZj856L08fau95CsTebfMS2NlLdch",
+    alt: "Founding Pastors Praveen and Pratima David",
+  },
+  {
+    src: "https://lh3.googleusercontent.com/aida-public/AB6AXuAJWDpsFP0MGUSBv8HhEZrxwn-3NPBgbQ85dVuh8-lsgFQhx8kIvOLTsG2YnaGYq5DzL-W-fyRNMGe3L1JXpx2UZe4NzsgXsmapuVK4-eGPi5gKzosZ8Ndc8p0vkuv63FgXSTftHjTRF-oj1Wlqv1X5RA15xRXDB2aJ4fqszEUz9uLl5Zm_6R0jrmH9-9mCWxlyknvpjQE-c3NZi_CFAEVNkFa22UC8d68oB1Fozq6Ed3eoq3sAu4u6",
+    alt: "Warm church family fellowship in Mogappair",
+  },
+  {
+    src: "https://lh3.googleusercontent.com/aida-public/AB6AXuCDwx7KjhBu3etqiXkc9Bn0fcIuS9aI2eXnsSFO9yDmjZBta6brAQ1_FJ_yv94EFxR2jPu3vOSe5PDouw8KogW5UeLuhYR-Qp6n0KioZeP9ctfs_6wpjSDwbT322NeRxrU-7jvUhCeHP96Izx_tmhGfcBIm6b_i3-S4EGVcJeyyY_EnYUN9-_476yOtYYSc-W90GrMFHfzhNWxsPhq-zbl4zzNT8JTx_jrjr4mI9fhxV8RBA3KUqEWL",
+    alt: "Joyful worship gathering at Trinity Worship Center",
+  },
+];
 
 export default function AboutHero() {
   return (
-    <section className="relative min-h-[500px] flex items-center justify-center overflow-hidden bg-[#fbf9f8] px-6 py-24 border-b border-[#e1c0b1]/40">
-      <div className="absolute inset-0 z-0">
-        <div
-          className="bg-cover bg-center w-full h-full opacity-15"
-          style={{
-            backgroundImage:
-              "url('https://lh3.googleusercontent.com/aida-public/AB6AXuBLL-dTxrGigHFkhZuidw7WQ2yFWTuH8pqqw7UEwC2a6Mbc8jL6ibYXu4RjIyBNadvBE4Nvmystj6AE9GBgjiqwtUrV8Qz838_2KATdlwsWWW0JRBjmKu_RaH8bagC6JAXPaTON6hoE2KbzVvn6jiOoGtNU5qQUcfL1YAiA-S9QURitP9cPWVxSl1mjiCTixDF6hsRl9KK4S9nWfo9JQV6t4xTLwZ3HH0UdBF7QJdpQhc-b3Mgo8HY9')",
-          }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#fbf9f8] via-transparent to-[#fbf9f8]" />
+    <section className="relative w-full bg-[#fbf9f8] text-[#1b1c1c] pt-10 sm:pt-14 md:pt-16 pb-8 overflow-hidden">
+      {/* Centered Editorial Text Block */}
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-5 sm:space-y-6">
+        <p className="font-sans font-bold text-xs sm:text-sm uppercase tracking-[0.2em] text-[#9f4200]">
+          Established April 13, 2003
+        </p>
+
+        <h1 className="font-sans font-extrabold text-3xl sm:text-5xl md:text-6xl lg:text-[4.25rem] uppercase tracking-[0.04em] leading-[1.12] text-[#1b1c1c]">
+          Five People.
+          <br />
+          One <span className="text-[#f36801]">Rented Hall.</span>
+        </h1>
+
+        <p className="font-sans text-sm sm:text-base md:text-[17px] text-[#594236] max-w-xl mx-auto leading-relaxed">
+          That&apos;s where Trinity Worship Center began in Mogappair, Chennai
+          — a spiritual home built on prayer, Scripture, and a deep love for
+          our city.
+        </p>
+
+        <div className="pt-2">
+          <Link
+            href="/visit"
+            className="inline-flex items-center justify-center px-9 py-3.5 sm:px-10 sm:py-4 bg-[#f36801] hover:bg-[#9f4200] text-white font-sans font-bold text-xs sm:text-sm uppercase tracking-[0.18em] rounded-full shadow-md hover:shadow-lg active:scale-95 transition-all duration-200"
+          >
+            Join Us This Sunday
+          </Link>
+        </div>
       </div>
 
-      <div className="relative z-10 max-w-4xl mx-auto text-center space-y-4">
-        <span className="inline-block py-1.5 px-4 rounded-full bg-[#f36801]/10 text-[#9f4200] font-sans font-semibold text-xs uppercase tracking-widest">
-          Established April 13, 2003
-        </span>
-        <h1 className="font-serif font-medium text-5xl sm:text-6xl md:text-7xl text-[#1b1c1c] tracking-tight leading-tight">
-          Five people. One rented hall.
-        </h1>
-        <h2 className="font-serif text-xl sm:text-2xl text-[#9f4200] max-w-2xl mx-auto font-medium leading-relaxed">
-          That&apos;s where Trinity Worship Center began in Mogappair, Chennai.
-        </h2>
+      {/* Curved-Arc Left-to-Right Infinite Photo Carousel */}
+      <div className="relative w-full mt-6 sm:mt-8 md:mt-10 overflow-hidden">
+        {/* Top Concave Arc Overlay */}
+        <svg
+          viewBox="0 0 1440 120"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+          className="pointer-events-none absolute -top-[1px] left-0 w-full h-8 sm:h-12 md:h-16 lg:h-20 z-10"
+        >
+          <path d="M0,0 L1440,0 L1440,10 Q720,120 0,10 Z" fill="#fbf9f8" />
+        </svg>
+
+        {/* Infinite Moving Track (Left -> Right) */}
+        <div className="hero-arc-track gap-5 sm:gap-7 md:gap-8">
+          {/* First Set */}
+          <div className="flex gap-5 sm:gap-7 md:gap-8 shrink-0">
+            {aboutHeroPhotos.map((photo, idx) => (
+              <div
+                key={`about-photo-a-${idx}`}
+                className="relative w-[260px] sm:w-[340px] md:w-[400px] lg:w-[440px] h-[340px] sm:h-[400px] md:h-[460px] lg:h-[500px] shrink-0 overflow-hidden bg-[#efeded]"
+              >
+                {/* eslint-disable-next-html-element-suppression */}
+                <img
+                  src={photo.src}
+                  alt={photo.alt}
+                  className="w-full h-full object-cover object-center"
+                />
+              </div>
+            ))}
+          </div>
+
+          {/* Duplicate Set for Seamless Loop */}
+          <div
+            className="flex gap-5 sm:gap-7 md:gap-8 shrink-0"
+            aria-hidden="true"
+          >
+            {aboutHeroPhotos.map((photo, idx) => (
+              <div
+                key={`about-photo-b-${idx}`}
+                className="relative w-[260px] sm:w-[340px] md:w-[400px] lg:w-[440px] h-[340px] sm:h-[400px] md:h-[460px] lg:h-[500px] shrink-0 overflow-hidden bg-[#efeded]"
+              >
+                {/* eslint-disable-next-html-element-suppression */}
+                <img
+                  src={photo.src}
+                  alt={photo.alt}
+                  className="w-full h-full object-cover object-center"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Bottom Concave Arc Overlay */}
+        <svg
+          viewBox="0 0 1440 120"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+          className="pointer-events-none absolute -bottom-[1px] left-0 w-full h-8 sm:h-12 md:h-16 lg:h-20 z-10"
+        >
+          <path
+            d="M0,120 L1440,120 L1440,110 Q720,0 0,110 Z"
+            fill="#fbf9f8"
+          />
+        </svg>
       </div>
     </section>
   );
 }
-
-

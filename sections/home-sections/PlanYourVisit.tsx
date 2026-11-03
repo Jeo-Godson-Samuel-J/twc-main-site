@@ -3,106 +3,181 @@
 import React from "react";
 import Link from "next/link";
 
+const sparkOverlayLines = ["SPARK", "KIDS"];
+
 export default function PlanYourVisit() {
   return (
-    <section className="py-10 sm:py-12 md:py-16 bg-[#fbf9f8] px-4 sm:px-6 md:px-8 border-b border-[#e1c0b1]/40">
-      <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10 space-y-2">
-          <span className="text-xs font-sans font-semibold text-[#9f4200] uppercase tracking-widest block">
-            8:00 AM TAMIL • 10:30 AM ENGLISH
-          </span>
-          <h2 className="font-serif font-medium text-3xl sm:text-4xl md:text-5xl text-[#1b1c1c]">
-            Your First Sunday
-          </h2>
-          <p className="font-sans text-sm sm:text-base md:text-lg text-[#594236] max-w-2xl mx-auto leading-relaxed">
-            We&apos;d love to meet you... Come as you are: you&apos;ll find people in everything from traditional sarees to casual jeans.
-          </p>
+    <section className="relative w-full bg-[#fbf9f8] text-[#1b1c1c] py-20 sm:py-28 lg:py-36 border-b border-[#e1c0b1]/40 overflow-hidden">
+      {/* Subtle Warm Ambient Glow */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute top-1/3 right-0 w-[500px] h-[500px] bg-[#f36801]/[0.06] rounded-full blur-3xl translate-x-1/3"
+      />
+
+      <div className="w-full max-w-[1440px] mx-auto px-6 sm:px-10 md:px-16 lg:px-24 space-y-20 sm:space-y-28 lg:space-y-32">
+        {/* Part 1: Your First Sunday + Service Times Banner */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-end">
+          <div className="lg:col-span-7 space-y-4">
+            <p className="font-sans font-bold text-xs sm:text-sm uppercase tracking-[0.2em] text-[#9f4200]">
+              8:00 AM Tamil • 10:30 AM English
+            </p>
+            <h2 className="font-sans font-extrabold text-4xl sm:text-5xl lg:text-6xl uppercase tracking-[0.03em] leading-[1.06] text-[#1b1c1c]">
+              Your First <span className="text-[#f36801]">Sunday</span>
+            </h2>
+            <p className="font-sans text-base sm:text-lg lg:text-xl text-[#594236] max-w-2xl leading-relaxed pt-1">
+              We&apos;d love to meet you. Come as you are — you&apos;ll find
+              people in everything from traditional sarees to casual jeans,
+              united in worship and community.
+            </p>
+          </div>
+
+          {/* Service Times Pill Cards */}
+          <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="rounded-2xl bg-[#231815] text-white p-6 flex items-center gap-4 shadow-lg">
+              <div className="w-12 h-12 rounded-xl bg-[#f36801]/20 text-[#f36801] flex items-center justify-center shrink-0">
+                <span className="material-symbols-outlined text-2xl">
+                  schedule
+                </span>
+              </div>
+              <div>
+                <p className="font-sans font-extrabold text-xl text-white leading-none">
+                  8:00 AM
+                </p>
+                <p className="font-sans font-bold text-[11px] uppercase tracking-[0.18em] text-[#f36801] mt-1.5">
+                  Tamil Service
+                </p>
+              </div>
+            </div>
+
+            <div className="rounded-2xl bg-[#231815] text-white p-6 flex items-center gap-4 shadow-lg">
+              <div className="w-12 h-12 rounded-xl bg-[#f36801]/20 text-[#f36801] flex items-center justify-center shrink-0">
+                <span className="material-symbols-outlined text-2xl">
+                  schedule
+                </span>
+              </div>
+              <div>
+                <p className="font-sans font-extrabold text-xl text-white leading-none">
+                  10:30 AM
+                </p>
+                <p className="font-sans font-bold text-[11px] uppercase tracking-[0.18em] text-[#f36801] mt-1.5">
+                  English Service
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
 
-        {/* Bento Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 auto-rows-[190px] sm:auto-rows-[210px] md:auto-rows-[220px]">
-          {/* Main Photo Card */}
-          <div className="md:col-span-2 md:row-span-2 rounded-2xl overflow-hidden relative group shadow-sm hover:shadow-md transition-all duration-300 border border-[#e1c0b1]/50 bg-white min-h-[360px] md:min-h-[440px]">
-            <div
-              className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-              style={{
-                backgroundImage:
-                  "url('https://lh3.googleusercontent.com/aida-public/AB6AXuCDwx7KjhBu3etqiXkc9Bn0fcIuS9aI2eXnsSFO9yDmjZBta6brAQ1_FJ_yv94EFxR2jPu3vOSe5PDouw8KogW5UeLuhYR-Qp6n0KioZeP9ctfs_6wpjSDwbT322NeRxrU-7jvUhCeHP96Izx_tmhGfcBIm6b_i3-S4EGVcJeyyY_EnYUN9-_476yOtYYSc-W90GrMFHfzhNWxsPhq-zbl4zzNT8JTx_jrjr4mI9fhxV8RBA3KUqEWL')",
-              }}
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#1b1c1c]/90 via-[#1b1c1c]/35 to-transparent" />
-            <div className="absolute bottom-0 left-0 p-6 sm:p-8 text-white z-10 max-w-lg">
-              <h3 className="font-serif font-medium text-2xl sm:text-3xl mb-1.5 text-white">Join us this weekend</h3>
-              <p className="font-sans text-white/85 text-xs sm:text-sm mb-5 leading-relaxed">
-                Experience uplifting worship, an encouraging biblical message, and a warm community ready to welcome you.
-              </p>
-              <Link
-                href="/visit#plan-visit"
-                className="inline-flex items-center justify-center px-6 py-2.5 sm:py-3 bg-[#f36801] text-white font-sans font-semibold text-xs sm:text-sm rounded-full hover:bg-[#9f4200] active:scale-95 transition-all shadow-sm"
+        {/* Part 2: Spark Kids Full-Width Editorial Split (Matching Previous Sections) */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 xl:gap-28 items-center">
+          {/* Left Side: Spark Kids Portrait Photo + Split Solid/Outlined Text + Circular Stamp */}
+          <div className="w-full flex justify-start">
+            <div className="relative w-full max-w-[560px] lg:max-w-[620px] pl-12 sm:pl-20 md:pl-24 lg:pl-28 pr-4">
+              {/* Layer 1 (Behind Photo, z-0): Solid Brand Charcoal/Orange Typography — visible outside the photo */}
+              <div
+                aria-hidden="true"
+                className="pointer-events-none select-none absolute left-0 top-1/2 -translate-y-1/2 z-0 font-sans font-black text-[3rem] sm:text-[4.25rem] md:text-[5rem] xl:text-[5.5rem] leading-[0.92] tracking-tight uppercase text-[#231815]"
               >
-                Plan Your Visit
-              </Link>
+                {sparkOverlayLines.map((line) => (
+                  <div key={`spark-solid-${line}`} className="whitespace-nowrap">
+                    {line}
+                  </div>
+                ))}
+              </div>
+
+              {/* Layer 2 (Middle, z-10): Spark Kids Photo Card */}
+              <div className="relative z-10 w-full aspect-[4/3] sm:aspect-[5/4] rounded-2xl overflow-hidden shadow-2xl bg-[#1b1c1c]">
+                {/* eslint-disable-next-html-element-suppression */}
+                <img
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjYRlECmDxW9AO50K5sEXsHezJOm-2LqLhynS0szreRK3QrhWsyIhlS_BJ0LTB6IvfRim6YUqeHb7GsSyZhgzLFqrYcFqBsStHbUED7MCc8wppkUGtgt4LisqPqZEn3Z9kBXII2wILfgkQQ_HS3UcClABCBGdp6KdxIhyhuneu9HybdKhGRXlJQ5VqPzf0fltcAOvsmz4yIeo7zj_ziKl9nln_MN1PCwz6guDduiBezy9t-0TzQZf6"
+                  alt="Spark Kids ministry at Trinity Worship Center"
+                  className="w-full h-full object-cover object-center transition-transform duration-700 hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/15 to-transparent" />
+              </div>
+
+              {/* Layer 3 (On Top of Photo, z-20): Outlined White Typography — hollow stroke over the photo */}
+              <div
+                aria-hidden="true"
+                className="pointer-events-none select-none absolute left-0 top-1/2 -translate-y-1/2 z-20 font-sans font-black text-[3rem] sm:text-[4.25rem] md:text-[5rem] xl:text-[5.5rem] leading-[0.92] tracking-tight uppercase text-transparent [-webkit-text-stroke:1.5px_#ffffff] sm:[-webkit-text-stroke:2px_#ffffff]"
+              >
+                {sparkOverlayLines.map((line) => (
+                  <div key={`spark-stroke-${line}`} className="whitespace-nowrap">
+                    {line}
+                  </div>
+                ))}
+              </div>
+
+              {/* Bottom-Right Circular "AGES 3–12 • EVERY SUNDAY ✦" Stamp */}
+              <div
+                aria-hidden="true"
+                className="pointer-events-none select-none absolute -bottom-10 -right-2 sm:-bottom-12 sm:-right-4 z-30 w-28 h-28 sm:w-32 sm:h-32 bg-[#f36801] rounded-full p-2 shadow-xl"
+              >
+                <svg
+                  viewBox="0 0 140 140"
+                  className="w-full h-full overflow-visible animate-[spin_24s_linear_infinite]"
+                >
+                  <defs>
+                    <path
+                      id="spark-kids-circle"
+                      d="M 70, 70 m -48, 0 a 48,48 0 1,1 96,0 a 48,48 0 1,1 -96,0"
+                    />
+                  </defs>
+                  <text
+                    fill="#ffffff"
+                    className="font-sans font-extrabold text-[13px] uppercase tracking-[0.2em]"
+                  >
+                    <textPath href="#spark-kids-circle" startOffset="0%">
+                      SPARK KIDS • EVERY SUNDAY &#10022;
+                    </textPath>
+                  </text>
+                </svg>
+              </div>
             </div>
           </div>
 
-          {/* Spark Kids Card */}
-          <div className="rounded-2xl bg-white p-6 border border-[#e1c0b1]/50 shadow-sm flex flex-col justify-between group hover-lift">
-            <div className="w-10 h-10 bg-[#f36801]/10 rounded-xl flex items-center justify-center text-[#f36801]">
+          {/* Right Side: Spark Kids Editorial Content & Pill CTAs */}
+          <div className="w-full flex flex-col justify-center items-start space-y-6 sm:space-y-7 lg:pl-6 xl:pl-12">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#f36801]/12 text-[#9f4200] font-sans font-bold text-xs uppercase tracking-[0.18em]">
               <span
-                className="material-symbols-outlined text-xl"
+                className="material-symbols-outlined text-base text-[#f36801]"
                 style={{ fontVariationSettings: "'FILL' 1" }}
               >
                 child_care
               </span>
-            </div>
-            <div>
-              <h3 className="font-serif font-medium text-xl text-[#1b1c1c] mb-1">
-                Spark Kids
-              </h3>
-              <p className="font-sans text-[#594236] text-xs sm:text-sm leading-relaxed">
-                Your kids are welcome too! Spark Kids runs alongside both services with fun, age-appropriate teaching.
-              </p>
-            </div>
-          </div>
+              Ages 3–12 • Both Services
+            </span>
 
-          {/* Timings Card */}
-          <div className="rounded-2xl bg-[#1b1c1c] text-white p-6 flex flex-col justify-center relative overflow-hidden group">
-            <div className="absolute -right-4 -top-4 w-28 h-28 bg-[#f36801]/20 rounded-full blur-2xl" />
-            <h3 className="font-serif font-medium text-xl mb-3 relative z-10 text-white">
-              Service Times
+            <h3 className="font-sans font-bold text-4xl sm:text-5xl lg:text-6xl text-[#1b1c1c] tracking-tight leading-[1.06]">
+              Your kids are
+              <br />
+              <span className="text-[#f36801]">welcome too.</span>
             </h3>
-            <ul className="space-y-3 relative z-10 font-sans">
-              <li className="flex items-center gap-3">
-                <span className="material-symbols-outlined text-[#f36801] text-lg">
-                  schedule
-                </span>
-                <div>
-                  <p className="font-semibold text-sm text-white">8:00 AM</p>
-                  <p className="text-[11px] text-[#cfc4c5] uppercase tracking-wider">
-                    Tamil Service
-                  </p>
-                </div>
-              </li>
-              <li className="flex items-center gap-3">
-                <span className="material-symbols-outlined text-[#f36801] text-lg">
-                  schedule
-                </span>
-                <div>
-                  <p className="font-semibold text-sm text-white">10:30 AM</p>
-                  <p className="text-[11px] text-[#cfc4c5] uppercase tracking-wider">
-                    English Service
-                  </p>
-                </div>
-              </li>
-            </ul>
+
+            <p className="font-sans text-base sm:text-lg lg:text-xl text-[#594236] leading-relaxed max-w-xl">
+              Spark Kids runs alongside both our 8:00 AM Tamil and 10:30 AM
+              English services. Through interactive Bible stories, joyful
+              worship, and safe age-appropriate groups, your children will love
+              every Sunday at Trinity Worship Center.
+            </p>
+
+            <div className="pt-2 flex flex-wrap items-center gap-4">
+              <Link
+                href="/visit#plan-visit"
+                className="inline-flex items-center justify-center px-10 py-3.5 rounded-full bg-[#f36801] hover:bg-[#9f4200] text-white font-sans font-bold text-xs sm:text-sm uppercase tracking-[0.2em] shadow-md active:scale-95 transition-all duration-200"
+              >
+                Plan Your Visit
+              </Link>
+
+              <Link
+                href="/connect"
+                className="inline-flex items-center justify-center px-9 py-3.5 rounded-full border border-[#1b1c1c]/80 text-[#1b1c1c] font-sans font-bold text-xs sm:text-sm uppercase tracking-[0.2em] hover:bg-[#1b1c1c] hover:text-white active:scale-95 transition-all duration-200"
+              >
+                Explore Ministries
+              </Link>
+            </div>
           </div>
         </div>
       </div>
     </section>
   );
 }
-
-
-
-
