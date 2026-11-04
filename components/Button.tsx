@@ -27,12 +27,12 @@ export default function Button({
 
   const variants: Record<string, string> = {
     primary:
-      "bg-[#f36801] text-white hover:bg-[#9f4200] focus:ring-[#f36801] shadow-sm hover:shadow",
+      "bg-[#f36801] text-white hover:bg-[#d85a00] focus:ring-[#f36801] shadow-sm hover:shadow",
     secondary:
-      "bg-[#f5f3f3] text-[#1b1c1c] border border-[#e1c0b1]/60 hover:bg-[#eae8e7] focus:ring-[#f36801]",
-    dark: "bg-[#1b1c1c] text-white hover:bg-[#353535] focus:ring-[#1b1c1c]",
+      "bg-[#f5f3f3] text-[#0D0B0B] border border-[#d8dada]/60 hover:bg-[#eae8e7] focus:ring-[#f36801]",
+    dark: "bg-[#0D0B0B] text-white hover:bg-[#353535] focus:ring-[#0D0B0B]",
     white:
-      "bg-white text-[#1b1c1c] hover:bg-[#f5f3f3] border border-[#e1c0b1]/40 focus:ring-[#f36801] shadow-sm",
+      "bg-white text-[#0D0B0B] hover:bg-[#f5f3f3] border border-[#d8dada]/40 focus:ring-[#f36801] shadow-sm",
     outline:
       "border border-[#f36801] text-[#f36801] hover:bg-[#f36801] hover:text-white focus:ring-[#f36801]",
   };

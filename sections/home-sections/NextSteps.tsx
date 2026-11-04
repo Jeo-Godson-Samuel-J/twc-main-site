@@ -12,7 +12,7 @@ export default function NextSteps() {
           <span className="inline-block px-4 py-1.5 rounded-full bg-[#acc300]/20 text-[#586400] text-xs font-bold uppercase tracking-wider">
             Growth &amp; Connection
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-[#1a1918] tracking-tight">
+          <h2 className="text-4xl md:text-5xl font-bold text-[#0D0B0B] tracking-tight">
             Next Steps
           </h2>
           <div className="w-20 h-1.5 bg-[#acc300] rounded-full" />

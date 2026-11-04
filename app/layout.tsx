@@ -40,7 +40,7 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
         />
       </head>
-      <body className={`${hankenGrotesk.className} min-h-full flex flex-col bg-[#fbf9f8] text-[#1b1c1c] selection:bg-[#f36801] selection:text-white font-sans`}>
+      <body className={`${hankenGrotesk.className} min-h-full flex flex-col bg-[#fbf9f8] text-[#0D0B0B] selection:bg-[#f36801] selection:text-white font-sans`}>
         <Navbar />
         <main className="flex-grow flex flex-col w-full">{children}</main>
         <Footer />

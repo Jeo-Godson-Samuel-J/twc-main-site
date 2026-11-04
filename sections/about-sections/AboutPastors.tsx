@@ -7,7 +7,7 @@ const pastorLines = ["LEAD", "PASTORS"];
 
 export default function AboutPastors() {
   return (
-    <section className="relative w-full bg-[#fbf9f8] text-[#1b1c1c] py-20 sm:py-28 lg:py-36 border-b border-[#e1c0b1]/40 overflow-hidden">
+    <section className="relative w-full bg-[#fbf9f8] text-[#0D0B0B] py-20 sm:py-28 lg:py-36 border-b border-[#d8dada]/40 overflow-hidden">
       {/* Subtle Ambient Glow */}
       <div
         aria-hidden="true"
@@ -21,7 +21,7 @@ export default function AboutPastors() {
             {/* Layer 1 (Behind Photo, z-0): Solid Espresso Typography — visible outside the photo */}
             <div
               aria-hidden="true"
-              className="pointer-events-none select-none absolute left-0 top-1/2 -translate-y-1/2 z-0 font-sans font-black text-[2.75rem] sm:text-[4rem] md:text-[4.75rem] xl:text-[5.25rem] leading-[0.92] tracking-tight uppercase text-[#231815]"
+              className="pointer-events-none select-none absolute left-0 top-1/2 -translate-y-1/2 z-0 font-sans font-black text-[2.75rem] sm:text-[4rem] md:text-[4.75rem] xl:text-[5.25rem] leading-[0.92] tracking-tight uppercase text-[#0D0B0B]"
             >
               {pastorLines.map((line) => (
                 <div key={`about-pastor-solid-${line}`} className="whitespace-nowrap">
@@ -31,7 +31,7 @@ export default function AboutPastors() {
             </div>
 
             {/* Layer 2 (Middle, z-10): Pastors Portrait Photo */}
-            <div className="relative z-10 w-full aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl bg-[#1b1c1c]">
+            <div className="relative z-10 w-full aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl bg-[#0D0B0B]">
               {/* eslint-disable-next-html-element-suppression */}
               <img
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIV8jnX0zFx9zfWYAERPu713uTUidG89OYkUJ3Y10VPXXWvZKS_U_B1oW_oFSbr1mUMbQJJfrY_kadraZc_01ZT0yC3JxlK_Znrxx_ZmQoNFC6_arRzfjL3GS-e47jlpatcWIada_ejiIFmfIq4IyINd65HHhQSLDnlhdqC2vATvJJXyhFflu-Uvke62abrPlWQOEb1Oj8uPexxNNnfcCLR4oCZj856L08fau95CsTebfMS2NlLdch"
@@ -83,23 +83,23 @@ export default function AboutPastors() {
 
         {/* Right Side: Founding Pastors Story & CTA */}
         <div className="w-full flex flex-col justify-center items-start space-y-6 sm:space-y-8 lg:pl-6 xl:pl-12">
-          <p className="font-sans font-bold text-xs sm:text-sm uppercase tracking-[0.2em] text-[#9f4200]">
+          <p className="font-sans font-bold text-xs sm:text-sm uppercase tracking-[0.2em] text-[#f36801]">
             Pastoral Leadership
           </p>
 
-          <h2 className="font-sans font-bold text-4xl sm:text-5xl lg:text-6xl text-[#1b1c1c] tracking-tight leading-[1.06]">
+          <h2 className="font-sans font-bold text-4xl sm:text-5xl lg:text-6xl text-[#0D0B0B] tracking-tight leading-[1.06]">
             Praveen &amp;
             <br />
             <span className="text-[#f36801]">Pratima David.</span>
           </h2>
 
-          <p className="font-sans text-base sm:text-lg lg:text-xl text-[#594236] leading-relaxed max-w-xl">
+          <p className="font-sans text-base sm:text-lg lg:text-xl text-[#4a4b4b] leading-relaxed max-w-xl">
             Both born and raised in Chennai, Praveen and Pratima have been
             married since 1996. Their deep love for Chennai shapes Trinity
             Worship Center&apos;s heart for local community transformation.
           </p>
 
-          <p className="font-sans text-base sm:text-lg lg:text-xl text-[#594236] leading-relaxed max-w-xl">
+          <p className="font-sans text-base sm:text-lg lg:text-xl text-[#4a4b4b] leading-relaxed max-w-xl">
             They believe the local church is God&apos;s instrument of hope —
             meant to reach beyond its walls into the neighborhood, bringing
             restoration, empowerment, and practical Christ-like care.
@@ -108,7 +108,7 @@ export default function AboutPastors() {
           <div className="pt-2 flex flex-wrap items-center gap-4">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center px-10 py-3.5 rounded-full bg-[#231815] hover:bg-[#f36801] text-white font-sans font-bold text-xs sm:text-sm uppercase tracking-[0.2em] shadow-md active:scale-95 transition-all duration-200"
+              className="inline-flex items-center justify-center px-10 py-3.5 rounded-full bg-[#0D0B0B] hover:bg-[#f36801] text-white font-sans font-bold text-xs sm:text-sm uppercase tracking-[0.2em] shadow-md active:scale-95 transition-all duration-200"
             >
               Connect With Us
             </Link>

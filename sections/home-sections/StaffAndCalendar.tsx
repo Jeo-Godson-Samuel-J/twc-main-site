@@ -5,13 +5,13 @@ import Link from "next/link";
 
 export default function StaffAndCalendar() {
   return (
-    <section className="py-24 bg-[#faf9f8] text-[#1a1918] px-6">
+    <section className="py-24 bg-[#faf9f8] text-[#0D0B0B] px-6">
       <div className="max-w-7xl mx-auto space-y-12">
         <div className="text-center max-w-2xl mx-auto space-y-3">
           <span className="inline-block px-4 py-1.5 rounded-full bg-[#fce1cc] text-[#4a1e00] text-xs font-bold uppercase tracking-wider">
             Life at TWC
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-[#1a1918]">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-[#0D0B0B]">
             Leadership &amp; Events
           </h2>
           <p className="text-lg text-[#4d4c4b]">
@@ -35,7 +35,7 @@ export default function StaffAndCalendar() {
                 <span className="inline-block px-3 py-1 bg-[#f36801] text-white text-xs font-bold rounded-full uppercase tracking-wider">
                   Leadership
                 </span>
-                <h3 className="text-3xl font-bold text-[#1a1918]">
+                <h3 className="text-3xl font-bold text-[#0D0B0B]">
                   Staff &amp; Leaders
                 </h3>
                 <p className="text-base text-[#4d4c4b] leading-relaxed">
@@ -68,7 +68,7 @@ export default function StaffAndCalendar() {
                 <span className="inline-block px-3 py-1 bg-[#acc300]/20 text-[#586400] text-xs font-bold rounded-full uppercase tracking-wider">
                   Events
                 </span>
-                <h3 className="text-3xl font-bold text-[#1a1918]">
+                <h3 className="text-3xl font-bold text-[#0D0B0B]">
                   Calendar
                 </h3>
                 <p className="text-base text-[#4d4c4b] leading-relaxed">
@@ -79,7 +79,7 @@ export default function StaffAndCalendar() {
             <div className="px-8 pb-8">
               <Link
                 href="/visit#schedule"
-                className="inline-flex items-center justify-center px-6 py-3 bg-[#1a1918] text-white font-medium rounded-full hover:bg-zinc-800 transition-colors shadow-sm text-sm"
+                className="inline-flex items-center justify-center px-6 py-3 bg-[#0D0B0B] text-white font-medium rounded-full hover:bg-zinc-800 transition-colors shadow-sm text-sm"
               >
                 View Service Times
               </Link>

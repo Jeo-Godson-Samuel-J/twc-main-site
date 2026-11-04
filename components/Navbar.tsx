@@ -98,8 +98,8 @@ export default function Navbar() {
     <header
       className={`sticky top-0 z-50 w-full transition-all duration-300 ${
         scrolled
-          ? "bg-[#fbf9f8]/95 backdrop-blur-md border-b border-[#e1c0b1]/50 shadow-[0_2px_16px_rgba(27,28,28,0.04)] py-3.5"
-          : "bg-[#fbf9f8] border-b border-[#e1c0b1]/30 py-4"
+          ? "bg-[#f36801]/95 backdrop-blur-md border-b border-white/15 shadow-[0_4px_20px_rgba(27,28,28,0.14)] py-3"
+          : "bg-[#f36801] border-b border-white/15 py-3.5"
       }`}
     >
       {/* Hidden SVG Filter for the Liquid Gooey Capsule Morph */}
@@ -128,26 +128,28 @@ export default function Navbar() {
           href="/"
           className="flex items-center gap-3 group focus:outline-none"
         >
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#f36801] to-[#c85000] text-white flex items-center justify-center shadow-sm shadow-[#f36801]/20 ring-1 ring-black/5 group-hover:scale-105 transition-all duration-200">
-            <span className="material-symbols-outlined text-[22px]">church</span>
-          </div>
+          <img
+            src="/twc-logo.png"
+            alt="Trinity Worship Center Logo"
+            className="w-11 h-11 sm:w-12 sm:h-12 rounded-full object-contain shrink-0 shadow-sm group-hover:scale-105 transition-transform duration-200"
+          />
           <div className="flex flex-col">
-            <span className="font-serif font-semibold text-xl sm:text-[22px] text-[#1b1c1c] tracking-tight leading-none group-hover:text-[#f36801] transition-colors duration-200">
+            <span className="font-serif font-semibold text-xl sm:text-[22px] text-white tracking-tight leading-none">
               Trinity Worship Center
             </span>
-            <span className="text-[10px] font-sans font-semibold uppercase tracking-[0.18em] text-[#9f4200] mt-1">
+            <span className="text-[10px] font-sans font-semibold uppercase tracking-[0.18em] text-white/85 mt-1">
               Mogappair • Chennai
             </span>
           </div>
         </Link>
 
-        {/* Single-Strip Desktop Navigation with Gooey Liquid Capsule Selection */}
+        {/* Single-Strip Desktop Navigation with White Gooey Capsule Selection */}
         <nav
           aria-label="Primary Navigation"
           onMouseLeave={() => setHoveredIndex(null)}
           className="hidden lg:flex relative items-center gap-2 xl:gap-3 py-1"
         >
-          {/* Gooey Filter Layer holding Lead + Trail Capsules */}
+          {/* Gooey Filter Layer holding White Lead + Trail Capsules */}
           <div
             aria-hidden="true"
             style={{ filter: "url(#navbar-gooey-capsule)" }}
@@ -155,11 +157,11 @@ export default function Navbar() {
           >
             <span
               ref={leadCapsuleRef}
-              className="absolute top-1 bottom-1 left-0 rounded-full bg-[#f36801] opacity-0 will-change-transform"
+              className="absolute top-1 bottom-1 left-0 rounded-full bg-white opacity-0 will-change-transform"
             />
             <span
               ref={trailCapsuleRef}
-              className="absolute top-1.5 bottom-1.5 left-0 rounded-full bg-[#f36801] opacity-0 will-change-transform"
+              className="absolute top-1.5 bottom-1.5 left-0 rounded-full bg-white opacity-0 will-change-transform"
             />
           </div>
 
@@ -175,8 +177,8 @@ export default function Navbar() {
                 onMouseEnter={() => setHoveredIndex(index)}
                 className={`relative z-10 px-4 py-2 rounded-full text-sm font-sans font-bold tracking-wide transition-colors duration-200 ${
                   isSelected
-                    ? "text-white"
-                    : "text-[#231815] hover:text-[#231815]"
+                    ? "text-[#0D0B0B]"
+                    : "text-white hover:text-white"
                 }`}
               >
                 {link.name}
@@ -189,7 +191,7 @@ export default function Navbar() {
         <div className="flex items-center gap-3">
           <Link
             href="/visit"
-            className="hidden lg:inline-flex items-center gap-1.5 px-6 py-2.5 rounded-full border border-[#231815]/80 text-[#231815] hover:bg-[#f36801] hover:border-[#f36801] hover:text-white font-sans text-xs font-bold uppercase tracking-[0.18em] active:scale-95 transition-all duration-200 group"
+            className="hidden lg:inline-flex items-center gap-1.5 px-6 py-2.5 rounded-full border border-white text-white hover:bg-white hover:text-[#0D0B0B] font-sans text-xs font-bold uppercase tracking-[0.18em] active:scale-95 transition-all duration-200 group"
           >
             <span>Plan Your Visit</span>
             <span className="material-symbols-outlined text-[16px] transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
@@ -200,7 +202,7 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-xl text-[#1b1c1c] hover:text-[#f36801] transition-colors"
+            className="lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-xl text-white hover:bg-white/15 transition-colors"
             aria-label="Toggle Navigation Menu"
             aria-expanded={isOpen}
           >
@@ -213,8 +215,8 @@ export default function Navbar() {
 
       {/* Single-Strip Mobile Drawer */}
       {isOpen && (
-        <div className="lg:hidden bg-[#fbf9f8] border-t border-[#e1c0b1]/40 px-6 sm:px-10 py-5 space-y-4 shadow-lg">
-          <nav className="flex flex-col space-y-1">
+        <div className="lg:hidden bg-[#f36801] border-t border-white/20 px-6 sm:px-10 py-5 space-y-4 shadow-lg">
+          <nav className="flex flex-col space-y-1.5">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
@@ -222,16 +224,16 @@ export default function Navbar() {
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className={`flex items-center justify-between py-2.5 text-base font-sans border-b border-[#e1c0b1]/25 transition-colors ${
+                  className={`flex items-center justify-between px-4 py-2.5 rounded-full text-base font-sans transition-colors ${
                     isActive
-                      ? "text-[#f36801] font-bold"
-                      : "text-[#231815] font-semibold hover:text-[#f36801]"
+                      ? "bg-white text-[#0D0B0B] font-bold"
+                      : "text-white font-semibold hover:bg-white/15"
                   }`}
                 >
                   <span>{link.name}</span>
                   <span
                     className={`material-symbols-outlined text-lg ${
-                      isActive ? "text-[#f36801]" : "text-[#594236]/40"
+                      isActive ? "text-[#0D0B0B]" : "text-white/75"
                     }`}
                   >
                     chevron_right
@@ -241,9 +243,9 @@ export default function Navbar() {
             })}
           </nav>
 
-          <div className="pt-2 space-y-3">
-            <div className="flex items-center justify-center gap-2 text-xs font-sans font-medium text-[#594236]">
-              <span className="material-symbols-outlined text-base text-[#f36801]">
+          <div className="pt-2 space-y-3 border-t border-white/20">
+            <div className="flex items-center justify-center gap-2 text-xs font-sans font-medium text-white/90">
+              <span className="material-symbols-outlined text-base text-white">
                 schedule
               </span>
               <span>Sundays • 8:00 AM (Tamil) & 10:30 AM (English)</span>
@@ -252,7 +254,7 @@ export default function Navbar() {
             <Link
               href="/visit"
               onClick={() => setIsOpen(false)}
-              className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-[#f36801] hover:bg-[#9f4200] text-white font-sans text-xs font-bold uppercase tracking-[0.18em] rounded-full active:scale-98 transition-all shadow-sm"
+              className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-white text-[#0D0B0B] hover:bg-[#0D0B0B] hover:text-white font-sans text-xs font-bold uppercase tracking-[0.18em] rounded-full active:scale-98 transition-all shadow-sm"
             >
               <span>Plan Your Visit</span>
               <span className="material-symbols-outlined text-lg">

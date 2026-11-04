@@ -8,17 +8,7 @@ const marqueeRepeats = [0, 1, 2, 3];
 
 export default function OurStory() {
   return (
-    <section className="relative w-full bg-[#231815] text-white py-20 sm:py-28 lg:py-36 overflow-hidden">
-      {/* Subtle Warm Terracotta Ambient Glows */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-[#9f4200]/15 rounded-full blur-3xl -translate-y-1/2 -translate-x-1/2"
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-[#f36801]/10 rounded-full blur-3xl translate-y-1/3 translate-x-1/3"
-      />
-
+    <section className="relative w-full bg-[#0D0B0B] text-white py-20 sm:py-28 lg:py-36 overflow-hidden">
       {/* Part 1: Our Story So Far */}
       <div className="w-full max-w-[1440px] mx-auto px-6 sm:px-10 md:px-16 lg:px-24 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 xl:gap-28 items-center">
         {/* Left Side: Portrait Photo + Split Solid/Outlined Text + Circular Stamp */}
@@ -37,7 +27,7 @@ export default function OurStory() {
             </div>
 
             {/* Layer 2 (Middle, z-10): Congregation Portrait Photo */}
-            <div className="relative z-10 w-full aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl bg-[#1b1c1c]">
+            <div className="relative z-10 w-full aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl bg-[#262828]">
               {/* eslint-disable-next-html-element-suppression */}
               <img
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPdxTRB2UdtDbAs5WwjBT7wkJuWeJ149Rt4bdbUXgiXY9MdHQBtomHgrUP6M3UfwaFp2X7eq-UNGih9EveBezXbZgePwmDmg6kt1oKiJE9Y0rT-J9CjpnyDwcWJryCGoTgIW_UdR3jPrn5gclyVijz2D4Lpgi0Q4S3ckbqK0QIQIxLeCo0ixqzknMIJw_QHyv73DVb6bTcB7MdHq4XWkKHe3PlnV5zhdfMDq7aQiNLWHKLM44PkVza"
@@ -99,14 +89,14 @@ export default function OurStory() {
             <span className="text-[#f36801]">before a building.</span>
           </h2>
 
-          <p className="font-sans text-base sm:text-lg lg:text-xl text-[#fbf9f8]/85 leading-relaxed max-w-xl">
+          <p className="font-sans text-base sm:text-lg lg:text-xl text-white/80 leading-relaxed max-w-xl">
             Trinity Worship Center began as a vision God placed in the hearts
             of Pastors Praveen and Pratima David on April 13, 2003. What
             started with five people in a small rented space in Mogappair has
             flourished into a thriving spiritual home.
           </p>
 
-          <p className="font-sans text-base sm:text-lg lg:text-xl text-[#fbf9f8]/85 leading-relaxed max-w-xl">
+          <p className="font-sans text-base sm:text-lg lg:text-xl text-white/80 leading-relaxed max-w-xl">
             Over two decades later, Trinity remains a multi-generational family
             of families committed to evangelism, spiritual empowerment, and
             active community outreach across Chennai.
@@ -169,7 +159,7 @@ export default function OurStory() {
             beyond.
           </h2>
 
-          <p className="font-sans text-base sm:text-lg lg:text-xl text-[#fbf9f8]/85 leading-relaxed max-w-xl">
+          <p className="font-sans text-base sm:text-lg lg:text-xl text-white/80 leading-relaxed max-w-xl">
             We exist to share the good news of Jesus through the truth of
             God&apos;s Word and the testimony of transformed lives — empowering
             believers to walk in their calling and educating the next
@@ -187,7 +177,7 @@ export default function OurStory() {
         </div>
 
         <div className="w-full flex justify-start lg:justify-end lg:mt-16">
-          <div className="relative w-full max-w-[640px] aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl bg-[#1b1c1c]">
+          <div className="relative w-full max-w-[640px] aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl bg-[#262828]">
             {/* eslint-disable-next-html-element-suppression */}
             <img
               src="/hero-worship.png"

@@ -12,13 +12,13 @@ export default function ContactSection() {
           {/* Left Column: Form */}
           <div>
             <div className="mb-6">
-              <span className="inline-block px-3.5 py-1 rounded-full bg-[#f36801]/10 text-[#9f4200] text-[11px] font-sans font-semibold uppercase tracking-wider mb-2">
+              <span className="inline-block px-3.5 py-1 rounded-full bg-[#f36801]/10 text-[#f36801] text-[11px] font-sans font-semibold uppercase tracking-wider mb-2">
                 Send a Message
               </span>
-              <h2 className="font-serif font-medium text-3xl sm:text-4xl text-[#1b1c1c] tracking-tight">
+              <h2 className="font-serif font-medium text-3xl sm:text-4xl text-[#0D0B0B] tracking-tight">
                 We&rsquo;d Love to Hear From You
               </h2>
-              <p className="font-sans text-sm text-[#594236] mt-2 leading-relaxed">
+              <p className="font-sans text-sm text-[#4a4b4b] mt-2 leading-relaxed">
                 Whether you have questions about our services, cell groups, or ministries, reach out and our team will get in touch with you.
               </p>
             </div>
@@ -27,8 +27,8 @@ export default function ContactSection() {
 
           {/* Right Column: Contact Details & Map */}
           <div className="flex flex-col gap-6">
-            <div className="rounded-2xl border border-[#e1c0b1]/50 bg-white p-6 sm:p-8 space-y-6 shadow-sm">
-              <h3 className="font-serif font-medium text-2xl text-[#1b1c1c]">
+            <div className="rounded-2xl border border-[#d8dada]/50 bg-white p-6 sm:p-8 space-y-6 shadow-sm">
+              <h3 className="font-serif font-medium text-2xl text-[#0D0B0B]">
                 Contact Information
               </h3>
 
@@ -38,8 +38,8 @@ export default function ContactSection() {
                   <span className="material-symbols-outlined text-2xl">location_on</span>
                 </div>
                 <div>
-                  <h4 className="font-sans font-semibold text-sm text-[#1b1c1c]">Church Address</h4>
-                  <p className="font-sans text-sm text-[#594236] mt-0.5 leading-relaxed">
+                  <h4 className="font-sans font-semibold text-sm text-[#0D0B0B]">Church Address</h4>
+                  <p className="font-sans text-sm text-[#4a4b4b] mt-0.5 leading-relaxed">
                     Trinity Worship Center, Mogappair West, Chennai, Tamil Nadu 600037
                   </p>
                 </div>
@@ -51,8 +51,8 @@ export default function ContactSection() {
                   <span className="material-symbols-outlined text-2xl">call</span>
                 </div>
                 <div>
-                  <h4 className="font-sans font-semibold text-sm text-[#1b1c1c]">Phone</h4>
-                  <p className="font-sans text-sm text-[#594236] mt-0.5">+91 98765 43210</p>
+                  <h4 className="font-sans font-semibold text-sm text-[#0D0B0B]">Phone</h4>
+                  <p className="font-sans text-sm text-[#4a4b4b] mt-0.5">+91 98765 43210</p>
                 </div>
               </div>
 
@@ -62,14 +62,14 @@ export default function ContactSection() {
                   <span className="material-symbols-outlined text-2xl">mail</span>
                 </div>
                 <div>
-                  <h4 className="font-sans font-semibold text-sm text-[#1b1c1c]">Email</h4>
-                  <p className="font-sans text-sm text-[#594236] mt-0.5">info@twcchurch.org</p>
+                  <h4 className="font-sans font-semibold text-sm text-[#0D0B0B]">Email</h4>
+                  <p className="font-sans text-sm text-[#4a4b4b] mt-0.5">info@twcchurch.org</p>
                 </div>
               </div>
 
               {/* Social Icons */}
-              <div className="pt-4 border-t border-[#e1c0b1]/40">
-                <h4 className="font-sans font-semibold text-xs uppercase tracking-wider text-[#9f4200] mb-3">
+              <div className="pt-4 border-t border-[#d8dada]/40">
+                <h4 className="font-sans font-semibold text-xs uppercase tracking-wider text-[#f36801] mb-3">
                   Connect With Us
                 </h4>
                 <div className="flex gap-3">
@@ -77,7 +77,7 @@ export default function ContactSection() {
                     <a
                       key={idx}
                       href="#"
-                      className="flex h-10 w-10 items-center justify-center rounded-full bg-[#fbf9f8] border border-[#e1c0b1]/60 text-[#1b1c1c] hover:bg-[#f36801] hover:text-white hover:border-[#f36801] transition-all"
+                      className="flex h-10 w-10 items-center justify-center rounded-full bg-[#fbf9f8] border border-[#d8dada]/60 text-[#0D0B0B] hover:bg-[#f36801] hover:text-white hover:border-[#f36801] transition-all"
                       aria-label="Social Link"
                     >
                       <span className="material-symbols-outlined text-lg">{icon}</span>
@@ -88,7 +88,7 @@ export default function ContactSection() {
             </div>
 
             {/* Map Embed */}
-            <MapEmbed className="h-[260px] rounded-2xl overflow-hidden border border-[#e1c0b1]/50 shadow-sm" />
+            <MapEmbed className="h-[260px] rounded-2xl overflow-hidden border border-[#d8dada]/50 shadow-sm" />
           </div>
         </div>
       </div>

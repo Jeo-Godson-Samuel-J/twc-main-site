@@ -1,52 +1,36 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
 
 export default function VisitHero() {
   return (
-    <section className="relative pt-20 pb-28 overflow-hidden bg-[#fbf9f8] border-b border-[#e1c0b1]/40">
-      <div className="absolute inset-0 z-0">
-        <div
-          className="bg-cover bg-center w-full h-full opacity-10"
-          style={{
-            backgroundImage:
-              "url('https://lh3.googleusercontent.com/aida-public/AB6AXuAmAA__Xbd9p_VzhFAFDjqhUC5uoeYiJGQ1KNNlTRItz8QObmyNpzacCH-tZDvofPT3Xsfqrh1zpgzk4A_pKrrpLZPDmJ10PDOm6ncshH8Haj_-utF-f2KKd2EU-2-aaCWws8WojY9hQ9JbWsRejaHyuJutpMQxgzQeVB0Ta17RdKLbXv0ghnKqsen3rUgpAjZGDqbyn7JpJeMHzaAqzJ1rducQmTn-eEA5ATDQnChX7_9a5KSu1wmV')",
-          }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#fbf9f8] via-transparent to-[#fbf9f8]" />
-      </div>
+    <section className="relative w-full min-h-[78vh] sm:min-h-[84vh] flex items-center justify-center overflow-hidden bg-[#0D0B0B] text-white">
+      {/* Background Image */}
+      {/* eslint-disable-next-html-element-suppression */}
+      <img
+        src="/hero-worship.png"
+        alt="Congregation gathering for worship at Trinity Worship Center"
+        className="absolute inset-0 w-full h-full object-cover object-center scale-[1.02]"
+      />
 
-      <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-        <span className="inline-block py-1.5 px-4 rounded-full bg-[#f36801]/10 text-[#9f4200] font-sans font-semibold text-xs mb-6 uppercase tracking-wider">
-          Sunday Worship in Mogappair, Chennai
-        </span>
-        <h1 className="font-serif font-medium text-5xl md:text-7xl text-[#1b1c1c] tracking-tight mb-6">
-          We&apos;ve saved you a seat.
+      {/* Semi-Transparent Dark Overlay */}
+      <div aria-hidden="true" className="absolute inset-0 bg-black/55 z-[1]" />
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-gradient-to-t from-[#0D0B0B]/85 via-black/30 to-black/40 z-[1]"
+      />
+
+      {/* Centered Encouraging Heading */}
+      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 sm:px-10 md:px-16 lg:px-24 py-20 text-center space-y-6">
+        <h1 className="font-sans font-extrabold text-4xl sm:text-6xl md:text-7xl lg:text-[5.25rem] tracking-tight leading-[1.08] text-white">
+          Connect with <span className="text-[#f36801]">Us.</span>
         </h1>
-        <p className="font-sans text-lg md:text-xl text-[#594236] max-w-2xl mx-auto mb-10 leading-relaxed">
-          Whether you&apos;re exploring faith for the first time or searching for a spirit-filled church family to call home, you belong here.
+
+        <p className="font-sans text-base sm:text-lg md:text-xl text-white/85 max-w-2xl mx-auto leading-relaxed">
+          We&apos;ve saved a seat for you. Come as you are, worship Jesus with
+          us, and experience a warm church family you can call home.
         </p>
-        <div className="flex flex-col sm:flex-row justify-center gap-4">
-          <Link
-            href="#plan-visit"
-            className="px-8 py-3.5 bg-[#f36801] text-white rounded-full font-sans font-semibold hover:bg-[#9f4200] active:scale-95 transition-all shadow-sm"
-          >
-            Plan Your Visit
-          </Link>
-          <a
-            href="#location"
-            className="px-8 py-3.5 bg-white text-[#1b1c1c] border border-[#e1c0b1]/60 rounded-full font-sans font-semibold hover:bg-[#f5f3f3] active:scale-95 transition-all shadow-sm flex items-center justify-center gap-2"
-          >
-            <span className="material-symbols-outlined text-xl text-[#f36801]">
-              location_on
-            </span>
-            Get Directions
-          </a>
-        </div>
       </div>
     </section>
   );
 }
-
-

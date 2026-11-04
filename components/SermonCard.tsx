@@ -25,7 +25,7 @@ export default function SermonCard({
 }: SermonCardProps) {
   if (featured) {
     return (
-      <div className="group relative overflow-hidden rounded-2xl bg-[#1b1c1c] text-white shadow-md hover-lift">
+      <div className="group relative overflow-hidden rounded-2xl bg-[#0D0B0B] text-white shadow-md hover-lift">
         <div className="grid grid-cols-1 lg:grid-cols-2">
           {/* Thumbnail */}
           <div className="relative aspect-video lg:aspect-auto overflow-hidden hover-zoom">
@@ -55,11 +55,11 @@ export default function SermonCard({
             <h3 className="font-serif font-medium text-2xl lg:text-3xl text-white mt-3 leading-snug">
               {title}
             </h3>
-            <div className="mt-4 flex flex-wrap items-center gap-3 text-xs font-sans text-[#cfc4c5]">
+            <div className="mt-4 flex flex-wrap items-center gap-3 text-xs font-sans text-[#d4d5d5]">
               <span>{speaker}</span>
-              <span className="h-1 w-1 rounded-full bg-[#4c4546]" />
+              <span className="h-1 w-1 rounded-full bg-[#4a4b4b]" />
               <span>{date}</span>
-              <span className="h-1 w-1 rounded-full bg-[#4c4546]" />
+              <span className="h-1 w-1 rounded-full bg-[#4a4b4b]" />
               <span>{duration}</span>
             </div>
             <div className="mt-6">
@@ -74,7 +74,7 @@ export default function SermonCard({
   }
 
   return (
-    <div className="group relative flex flex-col overflow-hidden rounded-2xl border border-[#e1c0b1]/50 bg-white shadow-sm hover-lift">
+    <div className="group relative flex flex-col overflow-hidden rounded-2xl border border-[#d8dada]/50 bg-white shadow-sm hover-lift">
       {/* Thumbnail */}
       <div className="relative aspect-video overflow-hidden hover-zoom">
         <Image
@@ -87,7 +87,7 @@ export default function SermonCard({
         />
         {/* Duration badge */}
 
-        <span className="absolute bottom-3 right-3 rounded-md bg-[#1b1c1c]/80 px-2 py-1 text-[11px] font-semibold text-white">
+        <span className="absolute bottom-3 right-3 rounded-md bg-[#0D0B0B]/80 px-2 py-1 text-[11px] font-semibold text-white">
           {duration}
         </span>
         {/* Play overlay */}
@@ -103,16 +103,16 @@ export default function SermonCard({
       {/* Info */}
       <div className="flex flex-col flex-grow p-5">
         {series && (
-          <span className="text-[11px] font-sans font-semibold uppercase tracking-wider text-[#9f4200]">
+          <span className="text-[11px] font-sans font-semibold uppercase tracking-wider text-[#f36801]">
             {series}
           </span>
         )}
-        <h3 className="font-serif font-medium text-xl text-[#1b1c1c] mt-1 line-clamp-2 group-hover:text-[#f36801] transition-colors leading-snug">
+        <h3 className="font-serif font-medium text-xl text-[#0D0B0B] mt-1 line-clamp-2 group-hover:text-[#f36801] transition-colors leading-snug">
           {title}
         </h3>
-        <div className="mt-auto pt-4 flex items-center gap-3 text-xs font-sans text-[#594236]">
+        <div className="mt-auto pt-4 flex items-center gap-3 text-xs font-sans text-[#4a4b4b]">
           <span>{speaker}</span>
-          <span className="h-1 w-1 rounded-full bg-[#e1c0b1]" />
+          <span className="h-1 w-1 rounded-full bg-[#d8dada]" />
           <span>{date}</span>
         </div>
       </div>

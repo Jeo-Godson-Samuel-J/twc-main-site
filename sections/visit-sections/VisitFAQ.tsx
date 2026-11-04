@@ -36,13 +36,13 @@ export default function VisitFAQ() {
     <section className="py-20 lg:py-28 bg-[#fbf9f8]" id="plan-visit">
       <div className="max-w-3xl mx-auto px-6">
         <div className="text-center mb-14 space-y-3">
-          <span className="text-xs font-sans font-semibold uppercase tracking-widest text-[#9f4200]">
+          <span className="text-xs font-sans font-semibold uppercase tracking-widest text-[#f36801]">
             Frequently Asked Questions
           </span>
-          <h2 className="font-serif font-medium text-4xl md:text-5xl text-[#1b1c1c]">
+          <h2 className="font-serif font-medium text-4xl md:text-5xl text-[#0D0B0B]">
             What to Expect
           </h2>
-          <p className="font-sans text-[#594236] text-base max-w-xl mx-auto">
+          <p className="font-sans text-[#4a4b4b] text-base max-w-xl mx-auto">
             We want you to feel comfortable, welcomed, and at home from the moment you step into Trinity Worship Center.
           </p>
         </div>

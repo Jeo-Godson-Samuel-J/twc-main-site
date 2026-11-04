@@ -32,20 +32,20 @@ const aboutHeroPhotos = [
 
 export default function AboutHero() {
   return (
-    <section className="relative w-full bg-[#fbf9f8] text-[#1b1c1c] pt-10 sm:pt-14 md:pt-16 pb-8 overflow-hidden">
+    <section className="relative w-full bg-[#fbf9f8] text-[#0D0B0B] pt-10 sm:pt-14 md:pt-16 pb-8 overflow-hidden">
       {/* Centered Editorial Text Block */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-5 sm:space-y-6">
-        <p className="font-sans font-bold text-xs sm:text-sm uppercase tracking-[0.2em] text-[#9f4200]">
+        <p className="font-sans font-bold text-xs sm:text-sm uppercase tracking-[0.2em] text-[#f36801]">
           Established April 13, 2003
         </p>
 
-        <h1 className="font-sans font-extrabold text-3xl sm:text-5xl md:text-6xl lg:text-[4.25rem] uppercase tracking-[0.04em] leading-[1.12] text-[#1b1c1c]">
+        <h1 className="font-sans font-extrabold text-3xl sm:text-5xl md:text-6xl lg:text-[4.25rem] uppercase tracking-[0.04em] leading-[1.12] text-[#0D0B0B]">
           Five People.
           <br />
           One <span className="text-[#f36801]">Rented Hall.</span>
         </h1>
 
-        <p className="font-sans text-sm sm:text-base md:text-[17px] text-[#594236] max-w-xl mx-auto leading-relaxed">
+        <p className="font-sans text-sm sm:text-base md:text-[17px] text-[#4a4b4b] max-w-xl mx-auto leading-relaxed">
           That&apos;s where Trinity Worship Center began in Mogappair, Chennai
           — a spiritual home built on prayer, Scripture, and a deep love for
           our city.
@@ -54,7 +54,7 @@ export default function AboutHero() {
         <div className="pt-2">
           <Link
             href="/visit"
-            className="inline-flex items-center justify-center px-9 py-3.5 sm:px-10 sm:py-4 bg-[#f36801] hover:bg-[#9f4200] text-white font-sans font-bold text-xs sm:text-sm uppercase tracking-[0.18em] rounded-full shadow-md hover:shadow-lg active:scale-95 transition-all duration-200"
+            className="inline-flex items-center justify-center px-9 py-3.5 sm:px-10 sm:py-4 bg-[#f36801] hover:bg-[#d85a00] text-white font-sans font-bold text-xs sm:text-sm uppercase tracking-[0.18em] rounded-full shadow-md hover:shadow-lg active:scale-95 transition-all duration-200"
           >
             Join Us This Sunday
           </Link>

@@ -37,7 +37,7 @@ export default function PastorCard({
       <div className="mx-auto grid max-w-7xl w-full grid-cols-1 items-center gap-12 px-6 lg:grid-cols-2 lg:gap-20">
         {/* Portrait */}
         <div
-          className={`relative overflow-hidden rounded-2xl border border-[#e1c0b1]/40 shadow-sm ${imagePosition === "right" ? "lg:order-2" : ""} ${imageAnimClass} ${visible ? "anim-visible" : ""}`}
+          className={`relative overflow-hidden rounded-2xl border border-[#d8dada]/40 shadow-sm ${imagePosition === "right" ? "lg:order-2" : ""} ${imageAnimClass} ${visible ? "anim-visible" : ""}`}
           style={{ transitionDelay: "100ms" }}
         >
           <div className="hover-zoom aspect-[3/4] relative">
@@ -62,14 +62,14 @@ export default function PastorCard({
           </div>
 
           <div className="relative z-10">
-            <span className="text-xs font-sans font-semibold uppercase tracking-widest text-[#9f4200]">
+            <span className="text-xs font-sans font-semibold uppercase tracking-widest text-[#f36801]">
               {heading}
             </span>
-            <h2 className="font-serif font-medium text-3xl lg:text-4xl text-[#1b1c1c] mt-2 leading-tight">
+            <h2 className="font-serif font-medium text-3xl lg:text-4xl text-[#0D0B0B] mt-2 leading-tight">
               {names}
             </h2>
             <div className="mt-4 h-[2px] w-16 bg-[#f36801] rounded-full" />
-            <p className="text-body text-[#594236] mt-6 leading-relaxed">
+            <p className="text-body text-[#4a4b4b] mt-6 leading-relaxed">
               {biography}
             </p>
             <div className="mt-8">

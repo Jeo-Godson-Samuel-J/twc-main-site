@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function About() {
   return (
-    <section className="py-24 bg-[#1a1918] text-white px-6 text-center relative overflow-hidden">
+    <section className="py-24 bg-[#0D0B0B] text-white px-6 text-center relative overflow-hidden">
       <div className="absolute -left-12 -bottom-12 w-64 h-64 bg-[#acc300]/10 rounded-full blur-3xl" />
       <div className="max-w-4xl mx-auto space-y-8 relative z-10">
         <span className="inline-block px-4 py-1.5 rounded-full bg-[#f36801]/20 text-[#f36801] text-xs font-bold uppercase tracking-wider">
@@ -21,7 +21,7 @@ export default function About() {
         <div className="pt-4">
           <Link
             href="/about"
-            className="inline-flex items-center justify-center px-8 py-3.5 bg-white text-[#1a1918] font-semibold rounded-full hover:bg-[#acc300] hover:text-[#1a1918] transition-all duration-200 shadow-md text-base"
+            className="inline-flex items-center justify-center px-8 py-3.5 bg-white text-[#0D0B0B] font-semibold rounded-full hover:bg-[#acc300] hover:text-[#0D0B0B] transition-all duration-200 shadow-md text-base"
           >
             About TWC
           </Link>

@@ -60,7 +60,7 @@ export default function HeroSection({
       {/* Warm Overlay */}
       {overlay && backgroundImage && (
         <div
-          className="absolute inset-0 z-[1] bg-gradient-to-b from-[#1b1c1c]/60 via-[#1b1c1c]/40 to-[#fbf9f8]"
+          className="absolute inset-0 z-[1] bg-gradient-to-b from-[#0D0B0B]/60 via-[#0D0B0B]/40 to-[#fbf9f8]"
           style={{ opacity: overlayOpacity }}
         />
       )}
@@ -82,7 +82,7 @@ export default function HeroSection({
                 className={`anim-fade-up ${visible ? "anim-visible" : ""}`}
                 style={{ transitionDelay: "200ms" }}
               >
-                <h1 className="font-serif font-medium text-[#1b1c1c] text-display-lg tracking-tight leading-[1.08]">
+                <h1 className="font-serif font-medium text-[#0D0B0B] text-display-lg tracking-tight leading-[1.08]">
                   {title}
                 </h1>
               </div>
@@ -91,12 +91,12 @@ export default function HeroSection({
             {/* Right Column: Subtitle & CTAs in a Warm Card */}
             <div className="lg:col-span-5 flex flex-col items-start text-left">
               <div
-                className={`w-full rounded-2xl border border-[#e1c0b1]/50 bg-white/90 p-8 shadow-sm backdrop-blur-md anim-fade-right ${visible ? "anim-visible" : ""}`}
+                className={`w-full rounded-2xl border border-[#d8dada]/50 bg-white/90 p-8 shadow-sm backdrop-blur-md anim-fade-right ${visible ? "anim-visible" : ""}`}
                 style={{ transitionDelay: "300ms" }}
               >
                 {subtitle && (
                   <p
-                    className={`text-body text-[#594236] anim-fade-up ${visible ? "anim-visible" : ""}`}
+                    className={`text-body text-[#4a4b4b] anim-fade-up ${visible ? "anim-visible" : ""}`}
                     style={{ transitionDelay: "400ms" }}
                   >
                     {subtitle}
@@ -132,7 +132,7 @@ export default function HeroSection({
         >
           {/* Sunday Service Pill Badge */}
           <div
-            className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#f36801]/10 border border-[#f36801]/30 text-[#9f4200] text-xs font-semibold uppercase tracking-wider mb-6 anim-fade-down ${
+            className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#f36801]/10 border border-[#f36801]/30 text-[#f36801] text-xs font-semibold uppercase tracking-wider mb-6 anim-fade-down ${
               visible ? "anim-visible" : ""
             }`}
           >
@@ -147,14 +147,14 @@ export default function HeroSection({
             className={`anim-fade-up ${visible ? "anim-visible" : ""}`}
             style={{ transitionDelay: "200ms" }}
           >
-            <h1 className="font-serif font-medium text-[#1b1c1c] text-display-lg tracking-tight leading-[1.08]">
+            <h1 className="font-serif font-medium text-[#0D0B0B] text-display-lg tracking-tight leading-[1.08]">
               {title}
             </h1>
           </div>
 
           {subtitle && (
             <p
-              className={`text-body mt-6 max-w-2xl text-[#594236] text-center anim-fade-up ${
+              className={`text-body mt-6 max-w-2xl text-[#4a4b4b] text-center anim-fade-up ${
                 visible ? "anim-visible" : ""
               }`}
               style={{ transitionDelay: "350ms" }}

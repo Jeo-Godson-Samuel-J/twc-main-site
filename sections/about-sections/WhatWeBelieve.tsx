@@ -70,13 +70,7 @@ const beliefs = [
 
 export default function WhatWeBelieve() {
   return (
-    <section className="relative w-full bg-[#231815] text-white py-20 sm:py-28 lg:py-36 overflow-hidden">
-      {/* Subtle Ambient Glow */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute top-1/3 left-1/2 w-[700px] h-[700px] bg-[#f36801]/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"
-      />
-
+    <section className="relative w-full bg-[#0D0B0B] text-white py-20 sm:py-28 lg:py-36 overflow-hidden">
       <div className="w-full max-w-[1440px] mx-auto px-6 sm:px-10 md:px-16 lg:px-24 space-y-14 sm:space-y-20">
         {/* Header */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
@@ -89,7 +83,7 @@ export default function WhatWeBelieve() {
             </h2>
           </div>
 
-          <p className="font-sans text-base sm:text-lg text-[#fbf9f8]/80 max-w-md leading-relaxed">
+          <p className="font-sans text-base sm:text-lg text-white/80 max-w-md leading-relaxed">
             The foundational truths of Scripture that anchor our worship,
             preaching, and everyday life as followers of Jesus.
           </p>
@@ -108,8 +102,8 @@ export default function WhatWeBelieve() {
                   isAccent
                     ? "bg-[#f36801] text-white shadow-xl"
                     : isDark
-                    ? "bg-[#1b1c1c] text-white border border-white/10 shadow-xl"
-                    : "bg-[#f3efec] text-[#231815] border border-[#e1c0b1]/40 shadow-lg"
+                    ? "bg-[#262828] text-white border border-white/10 shadow-xl"
+                    : "bg-[#f2f2f2] text-[#0D0B0B] border border-[#d8dada]/40 shadow-lg"
                 }`}
               >
                 <div className="flex items-center justify-between">
@@ -136,7 +130,7 @@ export default function WhatWeBelieve() {
                         ? "text-white/80"
                         : isDark
                         ? "text-white/40"
-                        : "text-[#9f4200]/70"
+                        : "text-[#4a4b4b]"
                     }`}
                   >
                     {item.number}
@@ -146,7 +140,7 @@ export default function WhatWeBelieve() {
                 <div className="space-y-3">
                   <h3
                     className={`font-sans font-bold text-2xl sm:text-3xl tracking-tight leading-tight ${
-                      isAccent || isDark ? "text-white" : "text-[#231815]"
+                      isAccent || isDark ? "text-white" : "text-[#0D0B0B]"
                     }`}
                   >
                     {item.title}
@@ -156,8 +150,8 @@ export default function WhatWeBelieve() {
                       isAccent
                         ? "text-white/90"
                         : isDark
-                        ? "text-[#fbf9f8]/80"
-                        : "text-[#594236]"
+                        ? "text-white/80"
+                        : "text-[#4a4b4b]"
                     }`}
                   >
                     {item.description}
