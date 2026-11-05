@@ -21,7 +21,7 @@ export default function Footer() {
           <div className="lg:col-span-4 space-y-4">
             <Link href="/" className="inline-flex items-center gap-3 group">
               <img
-                src="/twc-logo.png"
+                src="/logo.png"
                 alt="Trinity Worship Center Logo"
                 className="w-11 h-11 rounded-full object-contain shrink-0 shadow-xs group-hover:scale-105 transition-transform duration-200"
               />

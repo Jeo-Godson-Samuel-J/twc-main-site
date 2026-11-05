@@ -129,7 +129,7 @@ export default function Navbar() {
           className="flex items-center gap-3 group focus:outline-none"
         >
           <img
-            src="/twc-logo.png"
+            src="/logo.png"
             alt="Trinity Worship Center Logo"
             className="w-11 h-11 sm:w-12 sm:h-12 rounded-full object-contain shrink-0 shadow-sm group-hover:scale-105 transition-transform duration-200"
           />
