@@ -2,11 +2,13 @@
 
 import React from "react";
 import Link from "next/link";
+import { useWebsiteImages } from "@/lib/sanity";
 
 const overlayLines = ["EVERYONE", "IS", "WELCOME", "HERE"];
 const marqueeRepeats = [0, 1, 2, 3];
 
 export default function WelcomeSection() {
+  const { homePlanVisitImage } = useWebsiteImages();
   return (
     <>
       {/* Plan Your Visit Section on Light (#fbf9f8) Background */}
@@ -31,7 +33,10 @@ export default function WelcomeSection() {
               <div className="relative z-10 w-full aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl bg-[#0D0B0B]">
                 {/* eslint-disable-next-html-element-suppression */}
                 <img
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJWDpsFP0MGUSBv8HhEZrxwn-3NPBgbQ85dVuh8-lsgFQhx8kIvOLTsG2YnaGYq5DzL-W-fyRNMGe3L1JXpx2UZe4NzsgXsmapuVK4-eGPi5gKzosZ8Ndc8p0vkuv63FgXSTftHjTRF-oj1Wlqv1X5RA15xRXDB2aJ4fqszEUz9uLl5Zm_6R0jrmH9-9mCWxlyknvpjQE-c3NZi_CFAEVNkFa22UC8d68oB1Fozq6Ed3eoq3sAu4u6"
+                  src={
+                    homePlanVisitImage ||
+                    "https://lh3.googleusercontent.com/aida-public/AB6AXuAJWDpsFP0MGUSBv8HhEZrxwn-3NPBgbQ85dVuh8-lsgFQhx8kIvOLTsG2YnaGYq5DzL-W-fyRNMGe3L1JXpx2UZe4NzsgXsmapuVK4-eGPi5gKzosZ8Ndc8p0vkuv63FgXSTftHjTRF-oj1Wlqv1X5RA15xRXDB2aJ4fqszEUz9uLl5Zm_6R0jrmH9-9mCWxlyknvpjQE-c3NZi_CFAEVNkFa22UC8d68oB1Fozq6Ed3eoq3sAu4u6"
+                  }
                   alt="Warm embrace and fellowship at Trinity Worship Center"
                   className="w-full h-full object-cover object-center"
                 />

@@ -2,8 +2,10 @@
 
 import React from "react";
 import Link from "next/link";
+import { useWebsiteImages } from "@/lib/sanity";
 
 export default function MissionSection() {
+  const { aboutMissionImage } = useWebsiteImages();
   return (
     <section className="w-full bg-[#fbf9f8] py-16 sm:py-20 lg:py-24 px-4 sm:px-8 md:px-12 lg:px-16">
       <div className="max-w-[1360px] mx-auto rounded-3xl sm:rounded-[2.25rem] bg-[#f2f2f2] border border-[#d8dada]/40 px-8 sm:px-12 md:px-16 lg:px-24 py-16 sm:py-20 lg:py-28">
@@ -50,7 +52,10 @@ export default function MissionSection() {
             <div className="relative w-full aspect-[16/10] sm:aspect-[3/2] rounded-2xl overflow-hidden shadow-md bg-[#e5e6e6]">
               {/* eslint-disable-next-html-element-suppression */}
               <img
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJWDpsFP0MGUSBv8HhEZrxwn-3NPBgbQ85dVuh8-lsgFQhx8kIvOLTsG2YnaGYq5DzL-W-fyRNMGe3L1JXpx2UZe4NzsgXsmapuVK4-eGPi5gKzosZ8Ndc8p0vkuv63FgXSTftHjTRF-oj1Wlqv1X5RA15xRXDB2aJ4fqszEUz9uLl5Zm_6R0jrmH9-9mCWxlyknvpjQE-c3NZi_CFAEVNkFa22UC8d68oB1Fozq6Ed3eoq3sAu4u6"
+                src={
+                  aboutMissionImage ||
+                  "https://lh3.googleusercontent.com/aida-public/AB6AXuAJWDpsFP0MGUSBv8HhEZrxwn-3NPBgbQ85dVuh8-lsgFQhx8kIvOLTsG2YnaGYq5DzL-W-fyRNMGe3L1JXpx2UZe4NzsgXsmapuVK4-eGPi5gKzosZ8Ndc8p0vkuv63FgXSTftHjTRF-oj1Wlqv1X5RA15xRXDB2aJ4fqszEUz9uLl5Zm_6R0jrmH9-9mCWxlyknvpjQE-c3NZi_CFAEVNkFa22UC8d68oB1Fozq6Ed3eoq3sAu4u6"
+                }
                 alt="Trinity Worship Center community welcoming visitors"
                 className="w-full h-full object-cover object-center"
               />

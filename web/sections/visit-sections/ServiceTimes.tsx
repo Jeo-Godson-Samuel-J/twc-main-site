@@ -2,9 +2,13 @@
 
 import React from "react";
 import Link from "next/link";
+import { useWebsiteImages } from "@/lib/sanity";
 
 const sparkOverlayLines = ["SPARKZ", "KIDS"];
 const marqueeRepeats = [0, 1, 2, 3];
+
+const DEFAULT_VISIT_SPARKZ_KIDS_IMG =
+  "https://lh3.googleusercontent.com/aida-public/AB6AXuBjYRlECmDxW9AO50K5sEXsHezJOm-2LqLhynS0szreRK3QrhWsyIhlS_BJ0LTB6IvfRim6YUqeHb7GsSyZhgzLFqrYcFqBsStHbUED7MCc8wppkUGtgt4LisqPqZEn3Z9kBXII2wILfgkQQ_HS3UcClABCBGdp6KdxIhyhuneu9HybdKhGRXlJQ5VqPzf0fltcAOvsmz4yIeo7zj_ziKl9nln_MN1PCwz6guDduiBezy9t-0TzQZf6";
 
 const services = [
   {
@@ -26,6 +30,8 @@ const services = [
 ];
 
 export default function ServiceTimes() {
+  const { visitSparkzKidsImage } = useWebsiteImages();
+
   return (
     <>
       {/* SECTION 1: Tamil (8:00 AM) & English (10:30 AM) Service Timings on White (#fbf9f8) — Fitted to Screen Height */}
@@ -165,7 +171,7 @@ export default function ServiceTimes() {
                 <div className="relative z-10 w-full aspect-[4/3] sm:aspect-[5/4] rounded-2xl overflow-hidden shadow-2xl bg-[#0D0B0B]">
                   {/* eslint-disable-next-html-element-suppression */}
                   <img
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjYRlECmDxW9AO50K5sEXsHezJOm-2LqLhynS0szreRK3QrhWsyIhlS_BJ0LTB6IvfRim6YUqeHb7GsSyZhgzLFqrYcFqBsStHbUED7MCc8wppkUGtgt4LisqPqZEn3Z9kBXII2wILfgkQQ_HS3UcClABCBGdp6KdxIhyhuneu9HybdKhGRXlJQ5VqPzf0fltcAOvsmz4yIeo7zj_ziKl9nln_MN1PCwz6guDduiBezy9t-0TzQZf6"
+                    src={visitSparkzKidsImage || DEFAULT_VISIT_SPARKZ_KIDS_IMG}
                     alt="Sparkz Kids ministry at Trinity Worship Center"
                     className="w-full h-full object-cover object-center transition-transform duration-700 hover:scale-105"
                   />

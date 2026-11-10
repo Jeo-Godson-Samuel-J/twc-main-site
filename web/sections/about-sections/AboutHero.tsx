@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import { useWebsiteImages } from "@/lib/sanity";
 
 const aboutHeroPhotos = [
   {
@@ -31,6 +32,12 @@ const aboutHeroPhotos = [
 ];
 
 export default function AboutHero() {
+  const { aboutHeroCarouselImages } = useWebsiteImages();
+  const photos = aboutHeroPhotos.map((photo, idx) => ({
+    ...photo,
+    src: aboutHeroCarouselImages?.[idx] || photo.src,
+  }));
+
   return (
     <section className="relative w-full bg-[#fbf9f8] text-[#0D0B0B] pt-10 sm:pt-14 md:pt-16 pb-8 overflow-hidden">
       {/* Centered Editorial Text Block */}
@@ -77,7 +84,7 @@ export default function AboutHero() {
         <div className="hero-arc-track gap-5 sm:gap-7 md:gap-8">
           {/* First Set */}
           <div className="flex gap-5 sm:gap-7 md:gap-8 shrink-0">
-            {aboutHeroPhotos.map((photo, idx) => (
+            {photos.map((photo, idx) => (
               <div
                 key={`about-photo-a-${idx}`}
                 className="relative w-[260px] sm:w-[340px] md:w-[400px] lg:w-[440px] h-[340px] sm:h-[400px] md:h-[460px] lg:h-[500px] shrink-0 overflow-hidden bg-[#efeded]"
@@ -97,7 +104,7 @@ export default function AboutHero() {
             className="flex gap-5 sm:gap-7 md:gap-8 shrink-0"
             aria-hidden="true"
           >
-            {aboutHeroPhotos.map((photo, idx) => (
+            {photos.map((photo, idx) => (
               <div
                 key={`about-photo-b-${idx}`}
                 className="relative w-[260px] sm:w-[340px] md:w-[400px] lg:w-[440px] h-[340px] sm:h-[400px] md:h-[460px] lg:h-[500px] shrink-0 overflow-hidden bg-[#efeded]"

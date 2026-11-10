@@ -1,14 +1,17 @@
 "use client";
 
 import React from "react";
+import { useWebsiteImages } from "@/lib/sanity";
 
 export default function VisitHero() {
+  const { visitHeroBgImage } = useWebsiteImages();
+
   return (
     <section className="relative w-full min-h-[78vh] sm:min-h-[84vh] flex items-center justify-center overflow-hidden bg-[#0D0B0B] text-white">
       {/* Background Image */}
       {/* eslint-disable-next-html-element-suppression */}
       <img
-        src="/hero-worship.png"
+        src={visitHeroBgImage || "/hero-worship.png"}
         alt="Congregation gathering for worship at Trinity Worship Center"
         className="absolute inset-0 w-full h-full object-cover object-center scale-[1.02]"
       />

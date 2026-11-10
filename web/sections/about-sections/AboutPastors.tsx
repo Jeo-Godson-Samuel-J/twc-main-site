@@ -2,10 +2,12 @@
 
 import React from "react";
 import Link from "next/link";
+import { useWebsiteImages } from "@/lib/sanity";
 
 const pastorLines = ["LEAD", "PASTORS"];
 
 export default function AboutPastors() {
+  const { aboutLeadPastorsImage } = useWebsiteImages();
   return (
     <section className="relative w-full bg-[#fbf9f8] text-[#0D0B0B] py-20 sm:py-28 lg:py-36 border-b border-[#d8dada]/40 overflow-hidden">
       {/* Subtle Ambient Glow */}
@@ -34,7 +36,10 @@ export default function AboutPastors() {
             <div className="relative z-10 w-full aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl bg-[#0D0B0B]">
               {/* eslint-disable-next-html-element-suppression */}
               <img
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIV8jnX0zFx9zfWYAERPu713uTUidG89OYkUJ3Y10VPXXWvZKS_U_B1oW_oFSbr1mUMbQJJfrY_kadraZc_01ZT0yC3JxlK_Znrxx_ZmQoNFC6_arRzfjL3GS-e47jlpatcWIada_ejiIFmfIq4IyINd65HHhQSLDnlhdqC2vATvJJXyhFflu-Uvke62abrPlWQOEb1Oj8uPexxNNnfcCLR4oCZj856L08fau95CsTebfMS2NlLdch"
+                src={
+                  aboutLeadPastorsImage ||
+                  "https://lh3.googleusercontent.com/aida-public/AB6AXuDIV8jnX0zFx9zfWYAERPu713uTUidG89OYkUJ3Y10VPXXWvZKS_U_B1oW_oFSbr1mUMbQJJfrY_kadraZc_01ZT0yC3JxlK_Znrxx_ZmQoNFC6_arRzfjL3GS-e47jlpatcWIada_ejiIFmfIq4IyINd65HHhQSLDnlhdqC2vATvJJXyhFflu-Uvke62abrPlWQOEb1Oj8uPexxNNnfcCLR4oCZj856L08fau95CsTebfMS2NlLdch"
+                }
                 alt="Founding Pastors Praveen & Pratima David"
                 className="w-full h-full object-cover object-center"
               />

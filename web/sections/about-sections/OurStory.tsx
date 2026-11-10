@@ -2,11 +2,14 @@
 
 import React from "react";
 import Link from "next/link";
+import { useWebsiteImages } from "@/lib/sanity";
 
 const storyOverlayLines = ["OUR", "STORY", "SO FAR"];
 const marqueeRepeats = [0, 1, 2, 3];
 
 export default function OurStory() {
+  const { aboutOurStoryPortraitImage, aboutOurStoryWorshipImage } =
+    useWebsiteImages();
   return (
     <section className="relative w-full bg-[#0D0B0B] text-white py-20 sm:py-28 lg:py-36 overflow-hidden">
       {/* Part 1: Our Story So Far */}
@@ -30,7 +33,10 @@ export default function OurStory() {
             <div className="relative z-10 w-full aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl bg-[#262828]">
               {/* eslint-disable-next-html-element-suppression */}
               <img
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPdxTRB2UdtDbAs5WwjBT7wkJuWeJ149Rt4bdbUXgiXY9MdHQBtomHgrUP6M3UfwaFp2X7eq-UNGih9EveBezXbZgePwmDmg6kt1oKiJE9Y0rT-J9CjpnyDwcWJryCGoTgIW_UdR3jPrn5gclyVijz2D4Lpgi0Q4S3ckbqK0QIQIxLeCo0ixqzknMIJw_QHyv73DVb6bTcB7MdHq4XWkKHe3PlnV5zhdfMDq7aQiNLWHKLM44PkVza"
+                src={
+                  aboutOurStoryPortraitImage ||
+                  "https://lh3.googleusercontent.com/aida-public/AB6AXuDPdxTRB2UdtDbAs5WwjBT7wkJuWeJ149Rt4bdbUXgiXY9MdHQBtomHgrUP6M3UfwaFp2X7eq-UNGih9EveBezXbZgePwmDmg6kt1oKiJE9Y0rT-J9CjpnyDwcWJryCGoTgIW_UdR3jPrn5gclyVijz2D4Lpgi0Q4S3ckbqK0QIQIxLeCo0ixqzknMIJw_QHyv73DVb6bTcB7MdHq4XWkKHe3PlnV5zhdfMDq7aQiNLWHKLM44PkVza"
+                }
                 alt="Trinity Worship Center congregation gathering"
                 className="w-full h-full object-cover object-center"
               />
@@ -180,7 +186,7 @@ export default function OurStory() {
           <div className="relative w-full max-w-[640px] aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl bg-[#262828]">
             {/* eslint-disable-next-html-element-suppression */}
             <img
-              src="/hero-worship.png"
+              src={aboutOurStoryWorshipImage || "/hero-worship.png"}
               alt="Worship and community life at Trinity Worship Center"
               className="w-full h-full object-cover object-center"
             />

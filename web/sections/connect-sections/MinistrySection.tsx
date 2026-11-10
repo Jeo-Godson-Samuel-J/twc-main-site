@@ -1,8 +1,17 @@
 "use client";
 
 import React from "react";
+import { useWebsiteImages } from "@/lib/sanity";
+
+const DEFAULT_SPARK_KIDS_IMG =
+  "https://lh3.googleusercontent.com/aida-public/AB6AXuBjYRlECmDxW9AO50K5sEXsHezJOm-2LqLhynS0szreRK3QrhWsyIhlS_BJ0LTB6IvfRim6YUqeHb7GsSyZhgzLFqrYcFqBsStHbUED7MCc8wppkUGtgt4LisqPqZEn3Z9kBXII2wILfgkQQ_HS3UcClABCBGdp6KdxIhyhuneu9HybdKhGRXlJQ5VqPzf0fltcAOvsmz4yIeo7zj_ziKl9nln_MN1PCwz6guDduiBezy9t-0TzQZf6";
+
+const DEFAULT_CELL_GROUPS_IMG =
+  "https://lh3.googleusercontent.com/aida-public/AB6AXuA5zOfiaZny82QjSV5E2VdAZ_eYcxiV6R4mB47TRQZILrX9JT8Tx_fBfLiRNCQNfwlIWFXloagakH2j-fwKcBjOyxI30gH94t99AUU0nktJn4AJ42CogSFToJsAUDqZetnIqCtwGrTNS_K91OkuKFBqixXfA-MyVtPNiCZZ3jfB-7tQTPkOhc2ZDoqoMAOfRwxTU1sDgkaIj1vRvkrhC3HHw62fWjUXq75UXndk164Oks9hSVMlCJ8Q";
 
 export default function MinistrySection() {
+  const { connectSparkKidsImage, connectCellGroupsImage } = useWebsiteImages();
+
   return (
     <section className="px-4 sm:px-6 pt-6 sm:pt-8 pb-16 bg-[#fbf9f8] max-w-7xl mx-auto">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[minmax(280px,auto)]">
@@ -11,7 +20,7 @@ export default function MinistrySection() {
           <div className="absolute inset-0 bg-gradient-to-t from-[#0D0B0B]/85 via-[#0D0B0B]/30 to-transparent z-10" />
           {/* eslint-disable-next-html-element-suppression */}
           <img
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjYRlECmDxW9AO50K5sEXsHezJOm-2LqLhynS0szreRK3QrhWsyIhlS_BJ0LTB6IvfRim6YUqeHb7GsSyZhgzLFqrYcFqBsStHbUED7MCc8wppkUGtgt4LisqPqZEn3Z9kBXII2wILfgkQQ_HS3UcClABCBGdp6KdxIhyhuneu9HybdKhGRXlJQ5VqPzf0fltcAOvsmz4yIeo7zj_ziKl9nln_MN1PCwz6guDduiBezy9t-0TzQZf6"
+            src={connectSparkKidsImage || DEFAULT_SPARK_KIDS_IMG}
             alt="Spark Kids Ministry"
             className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
           />
@@ -94,7 +103,7 @@ export default function MinistrySection() {
           <div className="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-transparent z-10 w-3/4 md:w-2/3" />
           {/* eslint-disable-next-html-element-suppression */}
           <img
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5zOfiaZny82QjSV5E2VdAZ_eYcxiV6R4mB47TRQZILrX9JT8Tx_fBfLiRNCQNfwlIWFXloagakH2j-fwKcBjOyxI30gH94t99AUU0nktJn4AJ42CogSFToJsAUDqZetnIqCtwGrTNS_K91OkuKFBqixXfA-MyVtPNiCZZ3jfB-7tQTPkOhc2ZDoqoMAOfRwxTU1sDgkaIj1vRvkrhC3HHw62fWjUXq75UXndk164Oks9hSVMlCJ8Q"
+            src={connectCellGroupsImage || DEFAULT_CELL_GROUPS_IMG}
             alt="Cell Groups Fellowship"
             className="absolute inset-0 w-full h-full object-cover object-right group-hover:scale-105 transition-transform duration-700"
           />

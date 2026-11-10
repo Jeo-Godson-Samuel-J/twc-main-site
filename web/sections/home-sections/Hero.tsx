@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
+import { useWebsiteImages } from "@/lib/sanity";
 
 const rotatingWords = ["TWC", "Family", "Community", "Your Home", "Jesus"];
 
@@ -9,6 +10,7 @@ export default function Hero() {
   const [wordIndex, setWordIndex] = useState(0);
   const slotRef = useRef<HTMLSpanElement | null>(null);
   const wordRef = useRef<HTMLSpanElement | null>(null);
+  const { homeHeroPoster } = useWebsiteImages();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -58,7 +60,7 @@ export default function Hero() {
         loop
         muted
         playsInline
-        poster="/hero-worship.png"
+        poster={homeHeroPoster || "/hero-worship.png"}
         className="absolute inset-0 w-full h-full object-cover object-center scale-[1.02]"
       >
         <source

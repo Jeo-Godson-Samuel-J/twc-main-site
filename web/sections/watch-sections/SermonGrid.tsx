@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import { useWebsiteImages } from "@/lib/sanity";
 
 interface SermonVideo {
   id: string;
@@ -9,40 +10,51 @@ interface SermonVideo {
   thumbnail: string;
 }
 
-const latestSermon: SermonVideo = {
-  id: "sermon-01",
-  youtubeId: "5qap5aO4i9A",
-  youtubeUrl: "https://www.youtube.com/watch?v=5qap5aO4i9A",
-  thumbnail:
-    "https://lh3.googleusercontent.com/aida-public/AB6AXuB4Y37DWLBcwjrr1DKkyvzrWQnp4Bp_PHYmo_u5msK5WemwJYZsZNWfI6YCK84j1WEZOmp-qNpQ4eQ-pcQ2IOAkUhR9V-9ABO6d4q9rkxpWRb589IK2a5Xyg69SeFgyGUg06Zn7bv1fivgPXJy0FhYi8e6bIj6XaMlF9oLx36o0POOM0PXpLCdzm9OKBwNvjeFV9Bj_RKqxqUZJ31ScP9Fk09X8xLa9et__j1JpH3KKv7QDM7P91_H9",
-};
+const DEFAULT_LATEST_THUMBNAIL =
+  "https://lh3.googleusercontent.com/aida-public/AB6AXuB4Y37DWLBcwjrr1DKkyvzrWQnp4Bp_PHYmo_u5msK5WemwJYZsZNWfI6YCK84j1WEZOmp-qNpQ4eQ-pcQ2IOAkUhR9V-9ABO6d4q9rkxpWRb589IK2a5Xyg69SeFgyGUg06Zn7bv1fivgPXJy0FhYi8e6bIj6XaMlF9oLx36o0POOM0PXpLCdzm9OKBwNvjeFV9Bj_RKqxqUZJ31ScP9Fk09X8xLa9et__j1JpH3KKv7QDM7P91_H9";
 
-const recommendedSermons: SermonVideo[] = [
-  {
-    id: "sermon-02",
-    youtubeId: "jfKfPfyJRdk",
-    youtubeUrl: "https://www.youtube.com/watch?v=jfKfPfyJRdk",
-    thumbnail:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuAJWDpsFP0MGUSBv8HhEZrxwn-3NPBgbQ85dVuh8-lsgFQhx8kIvOLTsG2YnaGYq5DzL-W-fyRNMGe3L1JXpx2UZe4NzsgXsmapuVK4-eGPi5gKzosZ8Ndc8p0vkuv63FgXSTftHjTRF-oj1Wlqv1X5RA15xRXDB2aJ4fqszEUz9uLl5Zm_6R0jrmH9-9mCWxlyknvpjQE-c3NZi_CFAEVNkFa22UC8d68oB1Fozq6Ed3eoq3sAu4u6",
-  },
-  {
-    id: "sermon-03",
-    youtubeId: "DWcJFNfaw9c",
-    youtubeUrl: "https://www.youtube.com/watch?v=DWcJFNfaw9c",
-    thumbnail:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuAYXNd2WFGNGK6U4Jo8z0e0IFegevRqVDN_aXiraGJYyYAAxxYMh5_gEuJ3juohSI5OMoox235LDGdxlQ7RnpNmEgEAJQYnOTxlOGFO_ecukmbIz-ZL6T7nZBoIdrgJKL9Rh6gPKcgZwEQXJ2DURYykzJ3Y-QFYdlz5RNlP7EXpyzQXdL9Bo29gHRNdzRxivm5F0oVWOmOqRHuv935vHy4lhERCXHWCnhwT33rM8T3RCJOIB8alXOXj",
-  },
-  {
-    id: "sermon-04",
-    youtubeId: "4xDzrJKXOOY",
-    youtubeUrl: "https://www.youtube.com/watch?v=4xDzrJKXOOY",
-    thumbnail:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCDwx7KjhBu3etqiXkc9Bn0fcIuS9aI2eXnsSFO9yDmjZBta6brAQ1_FJ_yv94EFxR2jPu3vOSe5PDouw8KogW5UeLuhYR-Qp6n0KioZeP9ctfs_6wpjSDwbT322NeRxrU-7jvUhCeHP96Izx_tmhGfcBIm6b_i3-S4EGVcJeyyY_EnYUN9-_476yOtYYSc-W90GrMFHfzhNWxsPhq-zbl4zzNT8JTx_jrjr4mI9fhxV8RBA3KUqEWL",
-  },
+const DEFAULT_RECOMMENDED_THUMBS = [
+  "https://lh3.googleusercontent.com/aida-public/AB6AXuAJWDpsFP0MGUSBv8HhEZrxwn-3NPBgbQ85dVuh8-lsgFQhx8kIvOLTsG2YnaGYq5DzL-W-fyRNMGe3L1JXpx2UZe4NzsgXsmapuVK4-eGPi5gKzosZ8Ndc8p0vkuv63FgXSTftHjTRF-oj1Wlqv1X5RA15xRXDB2aJ4fqszEUz9uLl5Zm_6R0jrmH9-9mCWxlyknvpjQE-c3NZi_CFAEVNkFa22UC8d68oB1Fozq6Ed3eoq3sAu4u6",
+  "https://lh3.googleusercontent.com/aida-public/AB6AXuAYXNd2WFGNGK6U4Jo8z0e0IFegevRqVDN_aXiraGJYyYAAxxYMh5_gEuJ3juohSI5OMoox235LDGdxlQ7RnpNmEgEAJQYnOTxlOGFO_ecukmbIz-ZL6T7nZBoIdrgJKL9Rh6gPKcgZwEQXJ2DURYykzJ3Y-QFYdlz5RNlP7EXpyzQXdL9Bo29gHRNdzRxivm5F0oVWOmOqRHuv935vHy4lhERCXHWCnhwT33rM8T3RCJOIB8alXOXj",
+  "https://lh3.googleusercontent.com/aida-public/AB6AXuCDwx7KjhBu3etqiXkc9Bn0fcIuS9aI2eXnsSFO9yDmjZBta6brAQ1_FJ_yv94EFxR2jPu3vOSe5PDouw8KogW5UeLuhYR-Qp6n0KioZeP9ctfs_6wpjSDwbT322NeRxrU-7jvUhCeHP96Izx_tmhGfcBIm6b_i3-S4EGVcJeyyY_EnYUN9-_476yOtYYSc-W90GrMFHfzhNWxsPhq-zbl4zzNT8JTx_jrjr4mI9fhxV8RBA3KUqEWL",
 ];
 
 export default function SermonGrid() {
+  const {
+    watchLatestThumbnail,
+    watchRecommendedThumb1,
+    watchRecommendedThumb2,
+    watchRecommendedThumb3,
+  } = useWebsiteImages();
   const [activeVideo, setActiveVideo] = useState<SermonVideo | null>(null);
+
+  const latestSermon: SermonVideo = {
+    id: "sermon-01",
+    youtubeId: "5qap5aO4i9A",
+    youtubeUrl: "https://www.youtube.com/watch?v=5qap5aO4i9A",
+    thumbnail: watchLatestThumbnail || DEFAULT_LATEST_THUMBNAIL,
+  };
+
+  const recommendedSermons: SermonVideo[] = [
+    {
+      id: "sermon-02",
+      youtubeId: "jfKfPfyJRdk",
+      youtubeUrl: "https://www.youtube.com/watch?v=jfKfPfyJRdk",
+      thumbnail: watchRecommendedThumb1 || DEFAULT_RECOMMENDED_THUMBS[0],
+    },
+    {
+      id: "sermon-03",
+      youtubeId: "DWcJFNfaw9c",
+      youtubeUrl: "https://www.youtube.com/watch?v=DWcJFNfaw9c",
+      thumbnail: watchRecommendedThumb2 || DEFAULT_RECOMMENDED_THUMBS[1],
+    },
+    {
+      id: "sermon-04",
+      youtubeId: "4xDzrJKXOOY",
+      youtubeUrl: "https://www.youtube.com/watch?v=4xDzrJKXOOY",
+      thumbnail: watchRecommendedThumb3 || DEFAULT_RECOMMENDED_THUMBS[2],
+    },
+  ];
 
   // Close in-screen player on Escape key
   useEffect(() => {

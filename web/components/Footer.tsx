@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import { useWebsiteImages } from "@/lib/sanity";
 
 const quickLinks = [
   { name: "About TWC", href: "/about" },
@@ -13,6 +14,7 @@ const quickLinks = [
 ];
 
 export default function Footer() {
+  const { brandLogo } = useWebsiteImages();
   return (
     <footer className="w-full bg-[#0D0B0B] text-[#fbf9f8] border-t border-white/10">
       <div className="w-full max-w-[1440px] mx-auto px-6 sm:px-10 md:px-16 lg:px-24 py-12 sm:py-14">
@@ -21,7 +23,7 @@ export default function Footer() {
           <div className="lg:col-span-4 space-y-4">
             <Link href="/" className="inline-flex items-center gap-3 group">
               <img
-                src="/logo.png"
+                src={brandLogo || "/logo.png"}
                 alt="Trinity Worship Center Logo"
                 className="w-11 h-11 rounded-full object-contain shrink-0 shadow-xs group-hover:scale-105 transition-transform duration-200"
               />
