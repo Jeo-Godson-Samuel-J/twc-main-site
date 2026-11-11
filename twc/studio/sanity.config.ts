@@ -5,16 +5,16 @@ import {schemaTypes} from './schemaTypes'
 
 export default defineConfig({
   name: 'default',
-  title: 'Website Images — TWC Admin',
+  title: 'Trinity Worship Center — Website Images',
 
-  projectId: '28l72ny4',
+  projectId: '8a77dieu',
   dataset: 'production',
 
   plugins: [
     structureTool({
       structure: (S) =>
         S.list()
-          .title('Website Admin')
+          .title('Admin Panel')
           .items([
             S.listItem()
               .title('Website Images')
@@ -26,7 +26,7 @@ export default defineConfig({
                   .title('Website Images'),
               ),
             ...S.documentTypeListItems().filter(
-              (listItem) => !['websiteImages'].includes(listItem.getId() ?? ''),
+              (listItem) => listItem.getId() !== 'websiteImages',
             ),
           ]),
     }),

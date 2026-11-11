@@ -1,8 +1,11 @@
 import { NextResponse } from "next/server";
 
-const SANITY_PROJECT_ID = "28l72ny4";
-const SANITY_DATASET = "production";
-const SANITY_API_VERSION = "2024-01-01";
+const SANITY_PROJECT_ID =
+  process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "8a77dieu";
+const SANITY_DATASET =
+  process.env.NEXT_PUBLIC_SANITY_DATASET || "production";
+const SANITY_API_VERSION =
+  process.env.NEXT_PUBLIC_SANITY_API_VERSION || "2024-01-01";
 
 const WEBSITE_IMAGES_QUERY = `*[_type == "websiteImages"][0]{
   "brandLogo": brandLogo.asset->url,
